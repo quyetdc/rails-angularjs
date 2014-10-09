@@ -5,6 +5,10 @@
     app.controller('registrationCtrl', ['$http', function($http){
 
         this.screen = 'sign_in';
+
+//        TODO: research this token
+        this.authenticity_token = "";
+
         this.signup_status = 'Not yet';
 
         this.user_params = {
@@ -32,7 +36,8 @@
                             email: this.user_params.email,
                             password: this.user_params.password,
                             password_confirmation: this.user_params.password_confirmation
-                    }
+                    }//,
+//                    authenticity_token: this.authenticity_token
                 })
             });
 
@@ -41,10 +46,6 @@
                     this.signup_status = 'successful';
                 }
             );
-//
-//            Started POST "/users" for 127.0.0.1 at 2014-10-09 20:12:05 +0700
-//            Processing by Devise::RegistrationsController#create as HTML
-//            Parameters: {"utf8"=>"✓", "authenticity_token"=>"eeC8z29JA9iBnJoa02ManhUDlhZBei+/jv7SVKBMTgM=", "user"=>{"email"=>"spree@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
         }
 
     }]);

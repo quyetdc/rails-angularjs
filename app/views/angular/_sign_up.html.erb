@@ -1,0 +1,46 @@
+<div class="auth-title"> Sign up </div>
+
+<div id="auth-left-panel" class="col-md-6 col-xs-6">
+  <form name="signupForm" ng-submit="signupForm.$valid && regCtrl.createUser()" novalidate>
+
+    <fieldset class="form-group" required>
+      <label>Email</label>
+      <input type="email" ng-model="regCtrl.user_params.email" placeholder="Enter your email" class="text-input" required />
+    </fieldset>
+
+
+    <fieldset class="form-group" required>
+
+      <label style="margin-top: 20px;">Password</label>
+      <input type="password" ng-model="regCtrl.user_params.password" placeholder="Enter your password" class="text-input" required />
+
+    </fieldset>
+
+    <fieldset class="form-group" required>
+
+      <label style="margin-top: 20px;">Password Confirmation</label>
+      <input type="password" ng-model="regCtrl.user_params.password_confirmation" placeholder="Enter your password again" class="text-input" required />
+
+    </fieldset>
+
+    <div style="margin-top: 25px; font-size: 13px; width: 75%;">
+      By signing up new account, I agree to the <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>
+    </div>
+
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-success btn-auth" id="btn-sign-up" value="Sign up" />
+    </fieldset>
+
+  </form>
+
+  <br />
+  <hr />
+  {{regCtrl.signup_status}}
+
+</div>
+
+<div id="auth-right-panel" class="col-md-3 col-xs-3">
+  Already have your account?
+  <br />
+  <div style="margin-top: 20px;"><a href ng-click="regCtrl.selectScreen('sign_in')"> Sign in now >> </a></div>
+</div>

@@ -1,15 +1,16 @@
+'use strict';
+
 // main angularjs custom file
 (function(){
-    var app = angular.module('registration', []);
+    var app = angular.module('registration', ['ngRoute']);
 
-    app.controller('registrationCtrl', ['$http', function($http){
+    app.controller('registrationCtrl', ['$http', '$location', function($http, $location){
+
+        var regCtrl = this;
 
         this.screen = 'sign_in';
 
-//        TODO: research this token
-        this.authenticity_token = "";
-
-        this.signup_status = 'Not yet';
+        this.returnData = '';
 
         this.user_params = {
             email: '',
@@ -33,20 +34,42 @@
                 url: "/users.json",
                 data: JSON.stringify({
                     user: {
-                            email: this.user_params.email,
-                            password: this.user_params.password,
-                            password_confirmation: this.user_params.password_confirmation
-                    }//,
-//                    authenticity_token: this.authenticity_token
+                            email: regCtrl.user_params.email,
+                            password: regCtrl.user_params.password,
+                            password_confirmation: regCtrl.user_params.password_confirmation
+                    }
                 })
             });
 
-            request.success(
-                function(  ) {
-                    this.signup_status = 'successful';
-                }
-            );
-        }
+            request.success(function(data, status) {
+//               $location.path('/edit');
+               regCtrl.screen = 'edit_profile';
+               regCtrl.returnData = "Success -- " + "data -- " + angular.toJson(data) + "status --- " + status;
+               console.log(regCtrl.returnData);
+            });
+
+            request.error(function(data, status) {
+                regCtrl.returnData = "error -- " + "data -- " + angular.toJson(data) + "status --- " + status;
+                console.log(regCtrl.returnData);
+            });
+
+        };
 
     }]);
+
+//    app.config(['$routeProvider', function($routeProvider) {
+//            $routeProvider.
+//                when('/edit', {
+//                    redirectTo: '/'
+//                }).
+//                when('/', {
+//                    templateUrl: '/angular/index.html.erb',
+//                    controller: 'registrationCtrl'
+//                }).
+//                otherwise({
+//                    templateUrl: '/angular/index.html.erb',
+//                    controller: 'registrationCtrl'
+//                });
+//    }]);
+
 })();

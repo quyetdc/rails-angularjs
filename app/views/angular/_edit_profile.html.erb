@@ -4,22 +4,31 @@
     <i><b>Caution:</b> Please make up your profile so that any one viewing will be impressed </i>
 </div>
 
-<div style="width: 50%; padding-left: 33%; margin-top: 50px; margin-bottom: 50px;">
-  <label>Email</label>
-  <input type="text" ng-model="userEmail" placeholder="Enter your email" class="text-input">
+<div id="edit-profile" class="col-md-6 col-xs-6">
+  <!--TODO: change method on submit-->
+  <form name="editProfileForm" ng-submit="editProfileForm.$valid && regCtrl.updateUser()" novalidate>
 
-  <label>Name</label>
-  <input type="text" ng-model="userName" placeholder="Enter your email" class="text-input">
+    <input name="authenticity_token" type="hidden" ng-model="regCtrl.authenticity_token" value="<%= form_authenticity_token %>" />
 
-  <label>Age</label>
-  <input type="text" ng-model="userAge" placeholder="Enter your email" class="text-input">
+    <br />
+    <fieldset class="form-group">
+      <label>Name</label>
+      <input type="name" ng-model="regCtrl.user_params.name" placeholder="Enter your name" class="text-input"/>
+    </fieldset>
 
-  <hr />
+    <br />
+    <fieldset class="form-group">
+      <label>Age</label>
+      <input type="name" ng-model="regCtrl.user_params.age" placeholder="Enter your name" class="text-input"/>
+    </fieldset>
 
-  <label style="margin-top: 20px;">Password</label>
-  <input type="text" ng-model="userPassword" placeholder="Enter your password" class="text-input">
+    <br />
+    <div style="width: 74%"><hr /></div>
 
-  <div>
-    <button type="button" class="btn btn-success btn-auth" id="btn-sign-up">Edit</button>
-  </div>
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-success btn-auth" id="btn-sign-up" value="Edit"/>
+    </fieldset>
+
+  </form>
+
 </div>

@@ -94,3 +94,16 @@ label{
     padding-bottom: 50px;
     border-bottom: solid 1px lightgray;
 }
+
+#edit-profile{
+    width: 50%;
+    padding-left: 33%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#welcome{
+    text-align: center;
+    color: #46a546;
+    margin-top: 100px;
+}

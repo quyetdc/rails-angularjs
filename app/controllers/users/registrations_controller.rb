@@ -11,6 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     user = User.new(user_params)
     if user.save
+      sign_in user
+
       respond_to do |format|
         format.html {redirect_to root_path}
         format.json {render :json => {:user => user}, status: :created}
@@ -29,9 +31,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    debugger
+    if current_user && (current_user.authentication_token == params[:user][:authentication_token])
+      if current_user.update(update_word_params)
+        respond_to do |format|
+          format.json { render :json => {user: current_user}, status: :ok}
+        end
+      else
+        respond_to do |format|
+          format.json { render :json => {user: current_user}, status: :bad_request}
+        end
+      end
+
+    else
+      debugger
+      respond_to do |format|
+        format.json { render :json => {error: current_user.errors, status: 401}}
+      end
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -73,5 +92,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def update_word_params
+    params.require(:user).permit(:name, :age, :authentication_token)
   end
 end

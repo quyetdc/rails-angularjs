@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   before_save :ensure_authentication_token
+
+  mount_uploader :avatar, AvatarUploader
 end

@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     if current_user && (current_user.authentication_token == params[:user][:authentication_token])
-      if current_user.update(update_word_params)
+      if current_user.update(update_user_params)
         respond_to do |format|
           format.json { render :json => {user: current_user}, status: :ok}
         end
@@ -94,7 +94,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
-  def update_word_params
-    params.require(:user).permit(:name, :age, :authentication_token)
+  def update_user_params
+    params.require(:user).permit(:name, :age, :avatar, :authentication_token)
   end
 end

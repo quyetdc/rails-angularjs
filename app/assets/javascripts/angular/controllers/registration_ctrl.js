@@ -5,18 +5,18 @@
     var app = angular.module('registration', ['ngRoute']);
 
     app.controller('registrationCtrl', ['$http', '$location', function($http, $location){
-
-        var regCtrl = this;
-
         this.screen = 'sign_in';
 
-        this.returnData = '';
+        this.error_message = '';
 
         this.user_params = {};
 
+        var regCtrl = this;
+
         // screen: sign_in, sign_up, edit_profile, welcome
         this.selectScreen = function(screen){
-          this.screen = screen;
+            regCtrl.error_message = '';
+            this.screen = screen;
         };
 
         this.screenSelected = function (screen){
@@ -38,17 +38,13 @@
 
             request.success(function(data, status) {
 //               $location.path('/edit');
-                regCtrl.screen = 'welcome';
-//                console.log(data);
-
-                // data --> {user: {id: 1, authentication_token: '', email: '', name: '', age: '' ...}}
+                regCtrl.screen = 'edit_profile';
                 regCtrl.user_params =  data.user;
                 console.log (regCtrl.user_params);
             });
 
             request.error(function(data, status) {
-                regCtrl.returnData = "error -- " + "data -- " + angular.toJson(data) + "status --- " + status;
-                console.log(regCtrl.returnData);
+                regCtrl.error_message = data.message;
             });
         };
 
@@ -69,15 +65,17 @@
             request.success(function(data, status) {
 //               $location.path('/edit');
                regCtrl.screen = 'edit_profile';
-//                console.log(data);
-
                 // data --> {user: {id: 1, authentication_token: '', email: '', name: '', age: '' ...}}
                regCtrl.user_params =  data.user;
             });
 
             request.error(function(data, status) {
-                regCtrl.returnData = "error -- " + "data -- " + angular.toJson(data) + "status --- " + status;
-                console.log(regCtrl.returnData);
+                console.log(angular.toJson(data));
+
+                var messages = data.message;
+                for (var property in messages) {
+                    regCtrl.error_message += property + ': ' + messages[property] + '; ';
+                };
             });
         };
 
@@ -102,8 +100,10 @@
             });
 
             request.error(function(data, status) {
-                regCtrl.returnData = "error -- " + "data -- " + angular.toJson(data) + "status --- " + status;
-                console.log(regCtrl.returnData);
+                console.log(angular.toJson(data));
+
+                regCtrl.error_message = data.message;
+                console.log(regCtrl.error_message);
             });
 
         };

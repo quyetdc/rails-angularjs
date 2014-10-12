@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       respond_to do |format|
         format.html {redirect_to root_path}
-        format.json {render :json => {:error => user.errors}, status: :bad_request}
+        format.json {render :json => {:message => user.errors.messages}, status: :bad_request}
       end
     end
   end
@@ -39,13 +39,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       else
         respond_to do |format|
-          format.json { render :json => {user: current_user}, status: :bad_request}
+          format.html {redirect_to root_path}
+          format.json {render :json => {:message => user.errors.messages}, status: :bad_request}
         end
       end
 
     else
       respond_to do |format|
-        format.json { render :json => {error: current_user.errors, status: 401}}
+        format.html {redirect_to root_path}
+        format.json {render :json => {:message => {Authentication: 'Invalid'}}, status: 401}
       end
     end
   end

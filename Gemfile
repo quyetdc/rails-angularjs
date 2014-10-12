@@ -45,3 +45,5 @@ gem 'devise'
 gem 'devise-token_authenticatable'
 
 gem 'angularjs-rails'
+
+gem 'rails_12factor', group: :production

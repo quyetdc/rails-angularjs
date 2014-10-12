@@ -13,6 +13,11 @@
     <input name="authenticity_token" type="hidden" ng-model="regCtrl.authenticity_token" value="<%= form_authenticity_token %>" />
 
     <br />
+    <fieldset class="form-group" style="margin-bottom: 50px;">
+        <label>Change your avatar</label>
+        <input type="file" file-model="regCtrl.user_params.avatar"/>
+    </fieldset>
+
     <fieldset class="form-group">
       <label>Name</label>
       <input type="name" ng-model="regCtrl.user_params.name" placeholder="Enter your name" class="text-input"/>

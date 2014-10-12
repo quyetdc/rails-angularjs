@@ -120,3 +120,15 @@ label{
     padding: 15px;
     color: #B00100;
 }
+
+.avatar-thumbnail {
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    border-radius: 500px;
+    display: inline;
+    vertical-align: bottom;
+    margin-bottom: -5px;
+}

@@ -82,17 +82,27 @@
         };
 
         this.updateUser = function() {
+            var update_user_params = {
+                name: regCtrl.user_params.name,
+                age: regCtrl.user_params.age,
+                avatar: regCtrl.user_params.avatar,
+                authentication_token: regCtrl.user_params.authentication_token
+            };
+
+            var fd = new FormData();
+            fd.append('user[name]', update_user_params.name);
+            fd.append('user[age]', update_user_params.age);
+            fd.append('user[avatar]', update_user_params.avatar);
+            fd.append('user[authentication_token]', update_user_params.authentication_token);
+
+
             var request = $http({
                 method: "PUT",
-                headers: {'Content-Type': 'application/json'},
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined},
                 url: "/users.json",
-                data: JSON.stringify({
-                    user: {
-                        name: regCtrl.user_params.name,
-                        age: regCtrl.user_params.age,
-                        authentication_token: regCtrl.user_params.authentication_token
-                    }
-                })
+
+                data: fd
             });
 
             request.success(function(data, status) {
@@ -100,6 +110,7 @@
                 regCtrl.screen = 'welcome';
                 regCtrl.error_message = '';
                 regCtrl.user_params =  data.user;
+                console.log(angular.toJson(regCtrl));
             });
 
             request.error(function(data, status) {
@@ -111,6 +122,37 @@
 
         };
     }]);
+
+    app.directive('fileModel', ['$parse', function ($parse) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                var model = $parse(attrs.fileModel);
+                var modelSetter = model.assign;
+
+                element.bind('change', function(){
+                    scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                    });
+                });
+            }
+        };
+    }]);
+
+//    app.service('fileUpload', ['$http', function ($http) {
+//        this.uploadFileToUrl = function(file, uploadUrl){
+//            var fd = new FormData();
+//            fd.append('file', file);
+//            $http.post(uploadUrl, fd, {
+//                transformRequest: angular.identity,
+//                headers: {'Content-Type': undefined}
+//            })
+//                .success(function(){
+//                })
+//                .error(function(){
+//                });
+//        }
+//    }]);
 
 //    app.config(['$routeProvider', function($routeProvider) {
 //            $routeProvider.

@@ -39,6 +39,7 @@
             request.success(function(data, status) {
 //               $location.path('/edit');
                 regCtrl.screen = 'edit_profile';
+                regCtrl.error_message = '';
                 regCtrl.user_params =  data.user;
                 console.log (regCtrl.user_params);
             });
@@ -65,6 +66,7 @@
             request.success(function(data, status) {
 //               $location.path('/edit');
                regCtrl.screen = 'edit_profile';
+               regCtrl.error_message = '';
                 // data --> {user: {id: 1, authentication_token: '', email: '', name: '', age: '' ...}}
                regCtrl.user_params =  data.user;
             });
@@ -96,6 +98,7 @@
             request.success(function(data, status) {
 //               $location.path('/edit');
                 regCtrl.screen = 'welcome';
+                regCtrl.error_message = '';
                 regCtrl.user_params =  data.user;
             });
 

@@ -32,7 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    debugger
     if current_user && (current_user.authentication_token == params[:user][:authentication_token])
       if current_user.update(update_word_params)
         respond_to do |format|
@@ -45,7 +44,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
 
     else
-      debugger
       respond_to do |format|
         format.json { render :json => {error: current_user.errors, status: 401}}
       end

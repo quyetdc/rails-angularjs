@@ -1,28 +1,44 @@
-== README
+SUMMARY
+------
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project I created with purpose of programmers can store snippets for later reuse or share with others.
 
-Things you may want to cover:
+I integrate AngularJs in this projects for easy front-end. This project is still being in development process.
 
-* Ruby version
+I have configured this project to use PostgreSQL in order to deploy on heroku. You may want to try this via address:
 
-* System dependencies
+http://rails-angular.herokuapp.com/
 
-* Configuration
+In order to try this, ofcourse, there are some steps you should follow:
 
-* Database creation
++ Star and Fork this repository, then clone your forked repository.
 
-* Database initialization
++ You can change config/database.yml in order to use SQL or SQLite3 ...
 
-* How to run the test suite
+Or install postgresql via some simples commands
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+sudo apt-get install libpq-dev
 
-* Deployment instructions
+bundle install
 
-* ...
+sudo apt-get install postgresql postgresql-contrib
 
+sudo -u postgres psql postgres
+```
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
++ run these commands on your terminal:
+
+```shell
+
+bundle install
+
+bundle exec rake db:create db:migrate
+
+rails server
+```
+
+Enjoy
+
+TODO
+----

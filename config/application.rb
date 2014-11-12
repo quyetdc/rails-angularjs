@@ -28,5 +28,10 @@ module RailsAngular
     # config.i18n.default_locale = :de
 
     config.serve_static_assets = true
+
+    ## Set carrier wave storage outside the public
+    # CarrierWave.configure do |config|
+    #   config.root = Rails.root
+    # end
   end
 end

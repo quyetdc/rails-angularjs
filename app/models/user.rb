@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
 
   mount_uploader :avatar, AvatarUploader
+
+  validates :name, length: { maximum: 50 }
+  validates :age, numericality: true, inclusion: 6..80, allow_nil: true
 end

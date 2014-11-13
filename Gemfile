@@ -40,9 +40,6 @@ gem 'rmagick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
-
 gem 'devise'
 gem 'devise-token_authenticatable'
 
@@ -51,3 +48,7 @@ gem 'angularjs-rails'
 gem 'rails_12factor', group: :production
 
 gem 'carrierwave'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end

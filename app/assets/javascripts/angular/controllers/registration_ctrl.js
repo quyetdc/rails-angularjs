@@ -5,25 +5,24 @@
     var app = angular.module('app.registration', ['ngRoute']);
 
     app.controller('registrationCtrl', ['$http', '$location', function($http, $location){
-        this.screen = 'sign_in';
-
-        this.error_message = '';
-
-        this.user_params = {};
-
         var regCtrl = this;
+        regCtrl.screen = 'sign_in';
+
+        regCtrl.error_message = '';
+
+        regCtrl.user_params = {};
 
         // screen: sign_in, sign_up, edit_profile, welcome
-        this.selectScreen = function(screen){
+        regCtrl.selectScreen = function(screen){
             regCtrl.error_message = '';
-            this.screen = screen;
+            regCtrl.screen = screen;
         };
 
-        this.screenSelected = function (screen){
-          return this.screen === screen;
+        regCtrl.screenSelected = function (screen){
+          return regCtrl.screen === screen;
         };
 
-        this.signin = function(){
+        regCtrl.signin = function(){
             var request = $http({
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
@@ -49,7 +48,7 @@
             });
         };
 
-        this.createUser = function() {
+        regCtrl.createUser = function() {
             var request = $http({
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
@@ -81,92 +80,45 @@
             });
         };
 
-        this.updateUser = function() {
-            var update_user_params = {
-                name: regCtrl.user_params.name,
-                age: regCtrl.user_params.age,
-                avatar: regCtrl.user_params.avatar,
-                authentication_token: regCtrl.user_params.authentication_token
-            };
-
-            var fd = new FormData();
-            fd.append('user[name]', update_user_params.name);
-            fd.append('user[age]', update_user_params.age);
-            fd.append('user[avatar]', update_user_params.avatar);
-            fd.append('user[authentication_token]', update_user_params.authentication_token);
-
-
-            var request = $http({
-                method: "PUT",
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined},
-                url: "/users.json",
-
-                data: fd
-            });
-
-            request.success(function(data, status) {
-//               $location.path('/edit');
-                regCtrl.screen = 'welcome';
-                regCtrl.error_message = '';
-                regCtrl.user_params =  data.user;
-                console.log(angular.toJson(regCtrl));
-            });
-
-            request.error(function(data, status) {
-                console.log(angular.toJson(data));
-
-                regCtrl.error_message = data.message;
-                console.log(regCtrl.error_message);
-            });
-
-        };
-    }]);
-
-    app.directive('fileModel', ['$parse', function ($parse) {
-        return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
-                var model = $parse(attrs.fileModel);
-                var modelSetter = model.assign;
-
-                element.bind('change', function(){
-                    scope.$apply(function(){
-                        modelSetter(scope, element[0].files[0]);
-                    });
-                });
-            }
-        };
-    }]);
-
-//    app.service('fileUpload', ['$http', function ($http) {
-//        this.uploadFileToUrl = function(file, uploadUrl){
+//        regCtrl.updateUser = function() {
+//            var update_user_params = {
+//                name: regCtrl.user_params.name,
+//                age: regCtrl.user_params.age,
+//                avatar: regCtrl.user_params.avatar,
+//                authentication_token: regCtrl.user_params.authentication_token
+//            };
+//
 //            var fd = new FormData();
-//            fd.append('file', file);
-//            $http.post(uploadUrl, fd, {
+//            fd.append('user[name]', update_user_params.name);
+//            fd.append('user[age]', update_user_params.age);
+//            fd.append('user[avatar]', update_user_params.avatar);
+//            fd.append('user[authentication_token]', update_user_params.authentication_token);
+//
+//
+//            var request = $http({
+//                method: "PUT",
 //                transformRequest: angular.identity,
-//                headers: {'Content-Type': undefined}
-//            })
-//                .success(function(){
-//                })
-//                .error(function(){
-//                });
-//        }
-//    }]);
-
-//    app.config(['$routeProvider', function($routeProvider) {
-//            $routeProvider.
-//                when('/edit', {
-//                    redirectTo: '/'
-//                }).
-//                when('/', {
-//                    templateUrl: '/angular/index.html.erb',
-//                    controller: 'registrationCtrl'
-//                }).
-//                otherwise({
-//                    templateUrl: '/angular/index.html.erb',
-//                    controller: 'registrationCtrl'
-//                });
-//    }]);
-
+//                headers: {'Content-Type': undefined},
+//                url: "/users.json",
+//
+//                data: fd
+//            });
+//
+//            request.success(function(data, status) {
+////               $location.path('/edit');
+//                regCtrl.screen = 'welcome';
+//                regCtrl.error_message = '';
+//                regCtrl.user_params =  data.user;
+//                console.log(angular.toJson(regCtrl));
+//            });
+//
+//            request.error(function(data, status) {
+//                console.log(angular.toJson(data));
+//
+//                regCtrl.error_message = data.message;
+//                console.log(regCtrl.error_message);
+//            });
+//
+//        };
+    }]);
 })();

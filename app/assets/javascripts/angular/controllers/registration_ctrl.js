@@ -52,7 +52,11 @@
             });
         };
 
-        regCtrl.createUser = function() {
+        regCtrl.createUser = function(isDataValid) {
+            if (!isDataValid){
+                return;
+            }
+
             var request = $http({
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},

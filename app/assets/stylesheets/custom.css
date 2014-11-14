@@ -1,15 +1,8 @@
 
 /* ----------- Topmost bar ---------- */
-.ava-part {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid #ddd;
-    padding-top: 8px;
-    padding-bottom: 10px;
-}
-
 .thumbnail {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     -webkit-border-radius: 500px;
     -moz-border-radius: 500px;
     border-radius: 500px;
@@ -21,12 +14,13 @@
 .ava-name {
     color: #204056;
     font-family: "DINRoundOT-Light", sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 400;
     position: relative;
     display: inline;
     margin-left: 2%;
     align: bottom;
+    bottom: 5px;
 }
 
 /* ----------- Page ---------- */
@@ -36,14 +30,22 @@ body {
     padding:0;
     height:100%;
 }
+
 #wrapper {
     min-height:100%;
     position:relative;
 }
 
+.ava-part {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    padding-top: 15px;
+    padding-bottom: 18px;
+}
+
 #content {
     padding:10px;
-    padding-bottom:280px; /* Height of the footer element */
+    padding-bottom:250px; /* Height of the footer element */
 }
 #footer {
     width:100%;

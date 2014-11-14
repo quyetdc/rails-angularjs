@@ -6,21 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<body>
-<div id="wrapper">
-  <div id="header"><!-- Avatar Part -->
-    <%= render 'angular/headers/avatar_part' %>
-  </div>
+    <body>
+        <div id="wrapper">
+          <div id="header"><!-- Avatar Part -->
+            <%= render 'angular/headers/avatar_part' %>
+          </div>
 
-  <div id="content">
-    <%= yield %>
-  </div>
+          <div id="content">
+            <%= yield %>
+          </div>
 
-  <div id="footer">
-    <%= render 'angular/footers/footer' %>
-  </div>
-</div>
-</body>
-</body>
+          <div id="footer">
+            <%= render 'angular/footers/footer' %>
+          </div>
+        </div>
+    </body>
 </html>

@@ -7,10 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- Avatar Part -->
-<%= render 'angular/headers/avatar_part' %>
+<body>
+<div id="wrapper">
+  <div id="header"><!-- Avatar Part -->
+    <%= render 'angular/headers/avatar_part' %>
+  </div>
 
-<%= yield %>
+  <div id="content">
+    <%= yield %>
+  </div>
 
+  <div id="footer">
+    <%= render 'angular/footers/footer' %>
+  </div>
+</div>
+</body>
 </body>
 </html>

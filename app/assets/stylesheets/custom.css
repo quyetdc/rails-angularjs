@@ -3,12 +3,13 @@
 .ava-part {
     background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
-    padding: 25px;
+    padding-top: 8px;
+    padding-bottom: 10px;
 }
 
 .thumbnail {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     -webkit-border-radius: 500px;
     -moz-border-radius: 500px;
     border-radius: 500px;
@@ -20,12 +21,37 @@
 .ava-name {
     color: #204056;
     font-family: "DINRoundOT-Light", sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 400;
     position: relative;
     display: inline;
     margin-left: 2%;
     align: bottom;
+}
+
+/* ----------- Page ---------- */
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+#content {
+    padding:10px;
+    padding-bottom:280px; /* Height of the footer element */
+}
+#footer {
+    width:100%;
+    height:180px;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background:#F8F8F8;
 }
 
 /* ----------- Auth ---------- */
@@ -37,7 +63,7 @@
     font-weight: 100;
     text-align: left;
     width: 100%;
-    margin-top: 80px;
+    margin-top: 120px;
     margin-left: 8px;
     padding-left: 15px;
 }

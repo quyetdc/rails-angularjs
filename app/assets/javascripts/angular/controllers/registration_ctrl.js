@@ -2,7 +2,7 @@
 
 // main angularjs custom file
 (function(){
-    var app = angular.module('registration', ['ngRoute']);
+    var app = angular.module('app.registration', ['ngRoute']);
 
     app.controller('registrationCtrl', ['$http', '$location', function($http, $location){
         this.screen = 'sign_in';

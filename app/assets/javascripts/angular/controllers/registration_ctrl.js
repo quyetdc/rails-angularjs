@@ -2,9 +2,9 @@
 
 // main angularjs custom file
 (function(){
-    var app = angular.module('app.registration', ['ngRoute']);
+    var app = angular.module('app.registration', ['ngRoute', 'app.globalService']);
 
-    app.controller('registrationCtrl', ['$http', '$location', function($http, $location){
+    app.controller('registrationCtrl', ['$http', 'globalService', function($http, globalService){
         var regCtrl = this;
         regCtrl.screen = 'sign_in';
 
@@ -22,7 +22,10 @@
           return regCtrl.screen === screen;
         };
 
-        regCtrl.signin = function(){
+        regCtrl.signin = function(isDataValid){
+            if (!isDataValid){
+                return;
+            }
             var request = $http({
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
@@ -40,7 +43,8 @@
                 regCtrl.screen = 'edit_profile';
                 regCtrl.error_message = '';
                 regCtrl.user_params =  data.user;
-                console.log (regCtrl.user_params);
+
+                globalService.setUser(data);
             });
 
             request.error(function(data, status) {

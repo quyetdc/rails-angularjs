@@ -1,21 +1,15 @@
-<div class="auth-title" id="edit-profile-title"> Edit Profile </div>
+<div class="row col-md-7 col-xs-7 col-md-offset-3 col-xs-offset-3">
 
-<div id="error-message" ng-show="regCtrl.error_message">{{regCtrl.error_message}}</div>
+  <div class="auth-title" id="edit-profile-title"> Edit Profile </div>
 
-<div style="margin-top: 50px; font-size: 16px; width: 100%; text-align: center;">
-    <i><b>Caution:</b> Please make up your profile so that any one viewing will be impressed </i>
-</div>
+  <div id="error-message" ng-show="regCtrl.error_message">{{regCtrl.error_message}}</div>
 
-<div id="edit-profile" class="col-md-6 col-xs-6">
-  <!--TODO: change method on submit-->
   <form name="editProfileForm" ng-submit="editProfileForm.$valid && regCtrl.updateUser()" novalidate>
-
     <input name="authenticity_token" type="hidden" ng-model="regCtrl.authenticity_token" value="<%= form_authenticity_token %>" />
-
     <br />
-    <fieldset class="form-group" style="margin-bottom: 50px;">
-        <label>Change your avatar</label>
-        <input type="file" file-model="regCtrl.user_params.avatar"/>
+    <fieldset class="form-group" style="margin-bottom: 50px; text-align: left">
+      <label>Change your avatar</label>
+      <input type="file" file-model="regCtrl.user_params.avatar"/>
     </fieldset>
 
     <fieldset class="form-group">
@@ -30,12 +24,12 @@
     </fieldset>
 
     <br />
-    <div style="width: 74%"><hr /></div>
 
     <fieldset class="form-group">
       <input type="submit" class="btn btn-success btn-auth" id="btn-sign-up" value="Edit"/>
     </fieldset>
 
   </form>
+
 
 </div>

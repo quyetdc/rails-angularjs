@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         respond_to do |format|
           format.html {redirect_to root_path}
-          format.json {render :json => {:message => user.errors.messages}, status: :bad_request}
+          format.json {render :json => {:message => current_user.errors.messages}, status: :bad_request}
         end
       end
 

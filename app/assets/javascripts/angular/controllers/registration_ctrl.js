@@ -22,6 +22,14 @@
           return regCtrl.screen === screen;
         };
 
+        regCtrl.requestApiSuccess = function (data) {
+            regCtrl.screen = 'edit_profile';
+            regCtrl.error_message = '';
+            regCtrl.user_params =  data.user;
+
+            globalService.setUser(data.user);
+        };
+
         regCtrl.signin = function(isDataValid){
             if (!isDataValid){
                 return;
@@ -39,12 +47,7 @@
             });
 
             request.success(function(data, status) {
-//               $location.path('/edit');
-                regCtrl.screen = 'edit_profile';
-                regCtrl.error_message = '';
-                regCtrl.user_params =  data.user;
-
-                globalService.setUser(data);
+                regCtrl.requestApiSuccess(data);
             });
 
             request.error(function(data, status) {
@@ -71,62 +74,50 @@
             });
 
             request.success(function(data, status) {
-//               $location.path('/edit');
-               regCtrl.screen = 'edit_profile';
-               regCtrl.error_message = '';
-                // data --> {user: {id: 1, authentication_token: '', email: '', name: '', age: '' ...}}
-               regCtrl.user_params =  data.user;
+                regCtrl.requestApiSuccess(data);
             });
 
             request.error(function(data, status) {
-                console.log(angular.toJson(data));
-
                 var messages = data.message;
                 for (var property in messages) {
                     regCtrl.error_message += property + ': ' + messages[property] + '; ';
-                };
+                }
             });
         };
 
-//        regCtrl.updateUser = function() {
-//            var update_user_params = {
-//                name: regCtrl.user_params.name,
-//                age: regCtrl.user_params.age,
-//                avatar: regCtrl.user_params.avatar,
-//                authentication_token: regCtrl.user_params.authentication_token
-//            };
-//
-//            var fd = new FormData();
-//            fd.append('user[name]', update_user_params.name);
-//            fd.append('user[age]', update_user_params.age);
-//            fd.append('user[avatar]', update_user_params.avatar);
-//            fd.append('user[authentication_token]', update_user_params.authentication_token);
-//
-//
-//            var request = $http({
-//                method: "PUT",
-//                transformRequest: angular.identity,
-//                headers: {'Content-Type': undefined},
-//                url: "/users.json",
-//
-//                data: fd
-//            });
-//
-//            request.success(function(data, status) {
-////               $location.path('/edit');
-//                regCtrl.screen = 'welcome';
-//                regCtrl.error_message = '';
-//                regCtrl.user_params =  data.user;
-//                console.log(angular.toJson(regCtrl));
-//            });
-//
-//            request.error(function(data, status) {
-//                console.log(angular.toJson(data));
-//
-//                regCtrl.error_message = data.message;
-//                console.log(regCtrl.error_message);
-//            });
-//
-//        };
+        regCtrl.updateUser = function() {
+            var update_user_params = {
+                name: regCtrl.user_params.name,
+                age: regCtrl.user_params.age,
+                avatar: regCtrl.user_params.avatar,
+                authentication_token: regCtrl.user_params.authentication_token
+            };
+
+            var fd = new FormData();
+            fd.append('user[name]', update_user_params.name);
+            fd.append('user[age]', update_user_params.age);
+            fd.append('user[avatar]', update_user_params.avatar);
+            fd.append('user[authentication_token]', update_user_params.authentication_token);
+
+
+            var request = $http({
+                method: "PUT",
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined},
+                url: "/users.json",
+
+                data: fd
+            });
+
+            request.success(function(data, status) {
+                window.location.href = 'http://24h.com.vn';
+//                regCtrl.requestApiSuccess(data);
+            });
+
+            request.error(function(data, status) {
+                regCtrl.error_message = data.message;
+            });
+        };
+
     }]);
 })();

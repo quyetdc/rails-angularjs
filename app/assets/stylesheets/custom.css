@@ -1,4 +1,6 @@
-
+.container{
+    width: 1200px;
+}
 /* ----------- Topmost bar ---------- */
 .thumbnail {
     width: 50px;

@@ -1,0 +1,18 @@
+.col-offset-small{
+    margin-left: 2%;
+}
+
+.col-1{
+    width: 15%;
+    float: left;
+}
+
+.col-3{
+    width: 15%;
+    float: right;
+}
+
+.col-2{
+    width: 60%;
+    float: left;
+}

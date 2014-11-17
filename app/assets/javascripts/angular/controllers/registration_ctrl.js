@@ -110,8 +110,8 @@
             });
 
             request.success(function(data, status) {
-                window.location.href = 'http://24h.com.vn';
-//                regCtrl.requestApiSuccess(data);
+                globalService.setUser(data.user);
+                window.location.href = '/dashboard';
             });
 
             request.error(function(data, status) {

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "angular/users#index"
 
+  get 'dashboard' => 'angular/dashboard#index'
+
   devise_for :users, :controllers => { :registrations => "users/registrations", :sessions => "users/sessions"}
   # devise_scope :user do
   #   post "/users/sign_in" => "users/sessions#create"

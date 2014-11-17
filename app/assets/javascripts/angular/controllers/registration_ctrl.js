@@ -25,8 +25,6 @@
         regCtrl.requestApiSuccess = function (data) {
             regCtrl.screen = 'edit_profile';
             regCtrl.error_message = '';
-            regCtrl.user_params =  data.user;
-
             globalService.setUser(data.user);
         };
 
@@ -48,11 +46,13 @@
 
             request.success(function(data, status) {
                 regCtrl.requestApiSuccess(data);
+                regCtrl.user_params =  {};
             });
 
             request.error(function(data, status) {
                 regCtrl.error_message = data.message;
             });
+
         };
 
         regCtrl.createUser = function(isDataValid) {
@@ -75,6 +75,7 @@
 
             request.success(function(data, status) {
                 regCtrl.requestApiSuccess(data);
+                regCtrl.user_params =  {};
             });
 
             request.error(function(data, status) {
@@ -86,38 +87,44 @@
         };
 
         regCtrl.updateUser = function() {
-            var update_user_params = {
-                name: regCtrl.user_params.name,
-                age: regCtrl.user_params.age,
-                avatar: regCtrl.user_params.avatar,
-                authentication_token: regCtrl.user_params.authentication_token
-            };
+            if (!regCtrl.user_params.length == 0){
+                var update_user_params = {
+                    name: regCtrl.user_params.name,
+                    age: regCtrl.user_params.age,
+                    avatar: regCtrl.user_params.avatar,
+                    authentication_token: globalService.getUser().authentication_token
+                };
 
-            var fd = new FormData();
-            fd.append('user[name]', update_user_params.name);
-            fd.append('user[age]', update_user_params.age);
-            fd.append('user[avatar]', update_user_params.avatar);
-            fd.append('user[authentication_token]', update_user_params.authentication_token);
+                var fd = new FormData();
+                fd.append('user[name]', update_user_params.name);
+                fd.append('user[age]', update_user_params.age);
+                fd.append('user[avatar]', update_user_params.avatar);
+                fd.append('user[authentication_token]', update_user_params.authentication_token);
 
+                var request = $http({
+                    method: "PUT",
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined},
+                    url: "/users.json",
 
-            var request = $http({
-                method: "PUT",
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined},
-                url: "/users.json",
+                    data: fd
+                });
 
-                data: fd
-            });
+                request.success(function(data, status) {
+                    globalService.setUser(data.user);
+                    regCtrl.user_params =  {};
 
-            request.success(function(data, status) {
-                globalService.setUser(data.user);
-                window.location.href = '/dashboard';
-            });
+                    window.location.href = '/dashboard';
+                });
 
-            request.error(function(data, status) {
-                regCtrl.error_message = data.message;
-            });
+                request.error(function(data, status) {
+                    regCtrl.error_message = data.message;
+                });
+            }
         };
 
+        regCtrl.skipUpdate = function() {
+            window.location.href = '/dashboard';
+        };
     }]);
 })();

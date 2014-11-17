@@ -4,7 +4,7 @@
 
   <div id="error-message" ng-show="regCtrl.error_message">{{regCtrl.error_message}}</div>
 
-  <form name="editProfileForm" ng-submit="editProfileForm.$valid && regCtrl.updateUser()" novalidate>
+  <form name="editProfileForm" novalidate>
     <input name="authenticity_token" type="hidden" ng-model="regCtrl.authenticity_token" value="<%= form_authenticity_token %>" />
     <br />
     <fieldset class="form-group" style="margin-bottom: 50px; text-align: left">
@@ -26,10 +26,9 @@
     <br />
 
     <fieldset class="form-group">
-      <input type="submit" class="btn btn-success btn-auth" id="btn-sign-up" value="Edit"/>
+      <input type="button" class="btn btn-success btn-auth" style="width: 30%" value="Edit" ng-click="regCtrl.updateUser()"/>
+      <input type="button" class="btn btn-primary btn-auth" style="width: 30%; margin-left: 14%" value="Skip" ng-click="regCtrl.skipUpdate()"/>
     </fieldset>
-
   </form>
-
 
 </div>

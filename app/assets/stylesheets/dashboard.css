@@ -16,3 +16,18 @@
     margin-top: 30px;
     padding-bottom: 50px;
 }
+
+.profile-pic-border {
+    display: block;
+    /*width: 100%;*/
+    /*max-width: 210px;*/
+    /*min-width: 177px;*/
+    margin-right: 10px !important;
+    bottom: 0px;
+    left: 0px;
+    /*margin: 0px 11px;*/
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+    border: 2px solid #FFF;
+    border-radius: 2px;
+    text-align: center;
+}

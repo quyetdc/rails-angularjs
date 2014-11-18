@@ -3,12 +3,12 @@
 }
 
 .col-2{
-    width: 25%;
+    width: 70%;
     float: left;
 }
 
 .col-1{
-    width: 70%;
+    width: 25%;
     float: left;
 }
 
@@ -19,9 +19,12 @@
 
 .profile-pic-border {
     display: block;
-    /*width: 100%;*/
-    /*max-width: 210px;*/
-    /*min-width: 177px;*/
+    width: 178px;
+    height: 178px;
+    padding: 2px;
+
+    max-width: 100%;
+    /*min-width: 210px;*/
     margin-right: 10px !important;
     bottom: 0px;
     left: 0px;

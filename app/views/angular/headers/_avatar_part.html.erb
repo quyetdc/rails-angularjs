@@ -2,22 +2,12 @@
   <h3 class="header-title">Rails & Angular Sample</h3>
   <% if current_user %>
       <div id="right-menu">
-        <!-- Split button -->
-        <div class="btn-group">
-          <button type="button" class="btn btn-default">
+        <img src=<%= current_user.avatar.url %> alt="..." class="img-circle" width="48px" height="48px">
+
             <%= current_user.name.length > 5 ?
                         "Welcome " + current_user.name.first(5) + '...' :
                         "Welcome " + current_user.name %>
-          </button>
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="caret"></span>
-            <span class="sr-only"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Edit Profile</a></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </div>
+
 
       </div>
   <% end %>

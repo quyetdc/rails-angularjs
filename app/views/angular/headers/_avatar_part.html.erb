@@ -1,19 +1,26 @@
 <div class="ava-part">
-  <h5 class="header-title">Rails & Angular Sample</h5>
-  <div id="right-menu">
-    <div class="btn-group select select-block">
-        <button class="btn dropdown-toggle clearfix btn-info" data-toggle="dropdown">
-        <span class="filter-option pull-left">
-          Welcome <%= current_user.name.length > 5 ? current_user.name.first(5) + '...' : current_user.name %>
-        </span>&nbsp;
-        <span class="caret"></span></button>
-        <span class="dropdown-arrow dropdown-arrow-inverse"></span>
-        <ul class="dropdown-menu dropdown-inverse" role="menu" style="max-width:100%; overflow-y: auto;">
-          <li rel="0"><a tabindex="-1" href="#" class=""><span class="pull-left">Edit Profile</span></a></li>
-          <li rel="1"><a tabindex="-1" href="#" class=""><span class="pull-left">Sign Out</span></a></li>
-        </ul>
-    </div>
-  </div>
+  <h3 class="header-title">Rails & Angular Sample</h3>
+  <% if current_user %>
+      <div id="right-menu">
+        <!-- Split button -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default">
+            <%= current_user.name.length > 5 ?
+                        "Welcome " + current_user.name.first(5) + '...' :
+                        "Welcome " + current_user.name %>
+          </button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Edit Profile</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+
+      </div>
+  <% end %>
 </div>
 
 

@@ -4,21 +4,69 @@
       <div>
         <img id="cover" src="http://coverpixs.com/images/items/itm_2013-02-24_11-47-38_9.jpg"/>
         <ul id="navigation">
-            <li class="active"><a href="#">Code Wall <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">Code Wall</a></li>
             <li><a href="#">Tags</a></li>
             <li><a href="#">About</a></li>
         </ul>
 
       </div>
 
-      <div class="col-1 col-offset-small">
+      <div class="db-sidebar col-offset-small">
         <%= render 'right_col' %>
       </div>
 
-      <div class="col-2 col-offset-small">
-        column 1
-        <br />
-        List content
+      <div class="db-main-content col-offset-small">
+        <% 5.times do %>
+            <div class="db-content-item">
+              <div class="db-content-item-info">
+                <div class="left-col">
+                  <img src=<%= current_user.avatar.url %> alt="..."
+                       class="thumbnails" width="50px" height="50px"
+                       style="position: relative; float: left">
+                  <p style="position: relative; float: left; padding-left: 5%; font-weight: bold; font-size: 16px; padding-top: 2px">
+                    <a href="#"> <%= current_user.name %> / file_name</p> </a>
+                  <p style="position: relative; float: left; padding-left: 5%; font-size: 14px; line-height: 1">
+                    Date created</p>
+                </div>
+
+                <div class="right-col">
+                  <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Snippet's Tag</a></span>
+                </div>
+
+              </div>
+
+              <div class="db-content-item-main">
+                <pre>
+                ## I used Coffee Script syntax
+                ## @ sign here to set this function available in .erb file
+
+                @yourFunction = (auth_token) ->
+                  $.ajax({
+                    type: "GET",
+                    url: "/url/path",
+                    headers: { 'Authorization': 'Token token=' + auth_token }
+                  }).done((data) -> console.log(data)
+                  ).fail((jqXHR, textStatus, errorThrown) ->
+                    console.log("Request failed: " + textStatus)
+                    console.log(errorThrown)
+                  });
+                </pre>
+
+                <hr>
+                <div>
+                  <ul class="nav nav-pills" style="font-size: 14px">
+                    <li>
+                      <a href="#"><span class="glyphicon glyphicon-comment"></span> Comment</a>
+                    </li>
+
+                    <li style="margin-left: 25px">
+                      <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+        <% end %>
       </div>
     </div>
   </div>

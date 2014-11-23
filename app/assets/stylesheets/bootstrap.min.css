@@ -871,6 +871,15 @@ a.list-group-item-danger.active:focus {
     content: "\e041";
 }
 
+.glyphicon-comment:before {
+    content: "\e111";
+}
+
+.glyphicon-star:before {
+    content: "\e006";
+}
+
+
 *:before, *:after {
     box-sizing: border-box;
 }

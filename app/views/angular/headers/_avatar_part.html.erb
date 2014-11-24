@@ -1,14 +1,35 @@
+<div id="site-navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Snippet</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
-<div class="ava-part">
-  <h3 class="header-title">Rails & Angular Sample</h3>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <% if current_user %>
+            <li><a href="#"><%= current_user.name %></a></li>
+        <% end %>
+      </ul>
 
-  <% if current_user %>
-      <div id="right-menu">
-        <a href="#"> Home </a>
-        <a href="#"> <span class="glyphicon glyphicon-comment"></span> </a>
-        <img src=<%= current_user.avatar.url %> alt="..." class="thumbnails" width="30px" height="30px" style="margin-left: 0px; margin-right: 5%">
+      <div class="navbar-header navbar-right">
+        <ul class="nav navbar-nav" style="font-size: 20px; word-spacing: 1.8">
+          <% if current_user %>
+              <li><a href="" class="glyphicon glyphicon-comment"></a></li>
+              <li><a href="" class="glyphicon glyphicon-log-out"></a></li>
+              <li><a href="#">
+                <img src="<%= current_user.avatar.url %>" width="40px" height="40px"
+                     style="padding-left: 5px; top: -5px; position: relative;"></a>
+              </li>
+          <% end %>
+        </ul>
       </div>
-  <% end %>
+    </div>
+  </nav>
 </div>
-
 

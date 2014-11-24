@@ -16,14 +16,13 @@ img#cover{
     height: 300px;
     width: 95%;
     margin-left: 2.5%;
-    top: 66px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
     border: 1px solid #FFF;
     border-top: none;
     position: relative;
     top: -29px;
+    margin-top: 60px;
 }
-
 
 .thumbnail {
     width: 50px;
@@ -36,61 +35,30 @@ img#cover{
     margin-bottom: -5px;
 }
 
-.ava-name {
-    color: #204056;
-    font-family: "DINRoundOT-Light", sans-serif;
-    font-size: 28px;
-    font-weight: 400;
-    position: relative;
-    display: inline;
-    margin-left: 2%;
-    align: bottom;
-    bottom: 5px;
-}
+/*#site-navigation{*/
+    /*float: right;*/
+    /*font-size: 16px !important;*/
+    /*font-weight: bold !important;*/
+    /*width: 40%;*/
+    /*min-width: 100px;*/
+    /*position: relative;*/
+    /*color: #ffffff !important;*/
+    /*word-spacing: 25px;*/
+    /*font-weight: 500;*/
+/*}*/
 
-.ava-part {
-    box-sizing: border-box;
-    border-radius: 0px 0px 4px 4px;
-    margin-right: 0px;
-    margin-left: 0px;
-    background-color: #222;
-    border-color: #080808;
-    width: 100%;
-    min-height: 56px;
-    display: block !important;
-    height: 56px;
-    border-top: 0px none;
-}
+/*#site-navigation a{*/
+    /*font-size: 20px;*/
+    /*top: 5px;*/
+    /*position: relative;*/
+    /*color: #ffffff;*/
+/*}*/
 
-#right-menu{
-    float: right;
-    text-align: right;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    margin-right: 2%;
-    width: 40%;
-    min-width: 100px;
-    position: relative;
-    padding-top: 2px;
-    margin-top: 10px;
-    color: #ffffff !important;
-    word-spacing: 25px;
-    font-weight: 500;
-    /*background-color: #1abc9c !important;*/
-}
-
-#right-menu a{
-    font-size: 20px;
-    top: 5px;
-    position: relative;
-    color: #ffffff;
-}
-
-#right-menu a:hover{
-    cursor: pointer;
-    color: #428bca;
-    text-decoration: none;
-}
+/*#site-navigation a:hover{*/
+    /*cursor: pointer;*/
+    /*color: #428bca;*/
+    /*text-decoration: none;*/
+/*}*/
 
 /*#right-menu a:active{*/
     /*color: #ffffff;*/

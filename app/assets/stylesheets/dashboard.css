@@ -44,11 +44,11 @@ ul#navigation li a {
 
 /*Hover state for top level links*/
 ul#navigation li:hover a {
-    background: #19c589;
+    background: #5bc0de;
 }
 
 ul#navigation li.active a {
-    background: #19c589;
+    background: #5bc0de;
 }
 /* -------------------------- End navigation ----------------------------- */
 

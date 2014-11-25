@@ -36,3 +36,16 @@
     box-shadow: none;
     float: left;
 }
+
+label {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#auth-left-panel label{
+    min-width: 20%;
+}
+
+.sign-up label{
+    min-width: 30% !important;
+}

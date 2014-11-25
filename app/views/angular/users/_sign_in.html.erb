@@ -2,18 +2,18 @@
 
 <div id="error-message" ng-show="regCtrl.error_message">{{regCtrl.error_message}}</div>
 
-<div id="auth-left-panel" class="col-md-5 col-xs-5">
+<div id="auth-left-panel">
   <form name="signinForm" ng-submit="regCtrl.signin(signinForm.$valid)" novalidate>
 
     <fieldset class="form-group">
-      <label>Email</label>
+      <label>Email</label><br>
       <input type="email" name="signInEmail" ng-model="regCtrl.user_params.email" placeholder="Enter your email" class="text-input" required/>
       <span style="color:firebrick" ng-show="signinForm.signInEmail.$error.required && isSubmitted"><br/> Email is required.</span>
       <span style="color:firebrick" ng-show="signinForm.signInEmail.$error.email && isSubmitted"><br/> Email is not valid.</span>
     </fieldset>
 
     <fieldset class="form-group">
-      <label style="margin-top: 20px;">Password</label>
+      <label style="margin-top: 20px;">Password</label><br>
       <input type="password" name="password" ng-model="regCtrl.user_params.password" placeholder="Enter your password" class="text-input" required />
       <span style="color:firebrick" ng-show="signinForm.password.$error.required && isSubmitted"><br/> Password is required.</span>
     </fieldset>
@@ -25,11 +25,11 @@
   </form>
 </div>
 
-<div id="auth-right-panel" class="col-md-4 col-xs-4">
+<div id="auth-right-panel" style="margin-top: 40px">
   Don't have your account yet?
   <br />
   <div style="margin-top: 20px;"><a href ng-click="regCtrl.selectScreen('sign_up')"> Sign up now >> </a></div>
-  <div style="margin-top: 125px; font-size: 13px;">
+  <div style="margin-top: 50px; font-size: 13px;">
     By signing up new account, I agree to the <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>
   </div>
 </div>

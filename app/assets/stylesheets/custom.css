@@ -21,7 +21,7 @@ img#cover{
     border-top: none;
     position: relative;
     top: -29px;
-    margin-top: 60px;
+    margin-top: 56px;
 }
 
 .thumbnail {
@@ -35,34 +35,17 @@ img#cover{
     margin-bottom: -5px;
 }
 
-/*#site-navigation{*/
-    /*float: right;*/
-    /*font-size: 16px !important;*/
-    /*font-weight: bold !important;*/
-    /*width: 40%;*/
-    /*min-width: 100px;*/
-    /*position: relative;*/
-    /*color: #ffffff !important;*/
-    /*word-spacing: 25px;*/
-    /*font-weight: 500;*/
-/*}*/
-
-/*#site-navigation a{*/
-    /*font-size: 20px;*/
-    /*top: 5px;*/
-    /*position: relative;*/
-    /*color: #ffffff;*/
-/*}*/
-
-/*#site-navigation a:hover{*/
-    /*cursor: pointer;*/
-    /*color: #428bca;*/
-    /*text-decoration: none;*/
-/*}*/
-
-/*#right-menu a:active{*/
-    /*color: #ffffff;*/
-/*}*/
+ul#nav-right-menu{
+    font-size: 20px;
+    word-spacing: 1.8;
+    float: right;
+    text-align: right;
+    margin-right: 10%;
+    min-width: 45%;
+}
+ul#nav-right-menu li{
+    display: inline-block;
+}
 /* ----------- Page ---------- */
 html,
 body {

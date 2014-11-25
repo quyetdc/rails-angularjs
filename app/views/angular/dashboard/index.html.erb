@@ -16,26 +16,27 @@
       </div>
 
       <div class="db-main-content col-offset-small">
-        <% 5.times do %>
-            <div class="db-content-item">
-              <div class="db-content-item-info">
-                <div class="left-col">
-                  <img src=<%= current_user.avatar.url %> alt="..."
-                       class="thumbnails" width="50px" height="50px"
-                       style="position: relative; float: left">
-                  <p style="position: relative; float: left; padding-left: 5%; font-weight: bold; font-size: 16px; padding-top: 2px">
-                    <a href="#"> <%= current_user.name %> / file_name </a>
-                  <p style="position: relative; float: left; padding-left: 5%; font-size: 14px; line-height: 1">
-                    Date created</p>
-                </div>
+        <% if current_user %>
+            <% 5.times do %>
+                <div class="db-content-item">
+                  <div class="db-content-item-info">
+                    <div class="left-col">
+                      <img src=<%= current_user.avatar.url %> alt="..."
+                           class="thumbnails" width="50px" height="50px"
+                           style="position: relative; float: left">
+                      <p style="position: relative; float: left; padding-left: 5%; font-weight: bold; font-size: 16px; padding-top: 2px">
+                        <a href="#"> <%= current_user.name %> / file_name </a>
+                      <p style="position: relative; float: left; padding-left: 5%; font-size: 14px; line-height: 1">
+                        Date created</p>
+                    </div>
 
-                <div class="right-col">
-                  <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Snippet's Tag</a></span>
-                </div>
+                    <div class="right-col">
+                      <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Snippet's Tag</a></span>
+                    </div>
 
-              </div>
+                  </div>
 
-              <div class="db-content-item-main">
+                  <div class="db-content-item-main">
                 <pre>
                 ## I used Coffee Script syntax
                 ## @ sign here to set this function available in .erb file
@@ -52,20 +53,21 @@
                   });
                 </pre>
 
-                <hr>
-                <div>
-                  <ul class="nav nav-pills" style="font-size: 14px">
-                    <li>
-                      <a href="#"><span class="glyphicon glyphicon-comment"></span> Comment</a>
-                    </li>
+                    <hr>
+                    <div>
+                      <ul class="nav nav-pills" style="font-size: 14px">
+                        <li>
+                          <a href="#"><span class="glyphicon glyphicon-comment"></span> Comment</a>
+                        </li>
 
-                    <li style="margin-left: 25px">
-                      <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
-                    </li>
-                  </ul>
+                        <li style="margin-left: 25px">
+                          <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              </div>
+            <% end %>
         <% end %>
       </div>
     </div>

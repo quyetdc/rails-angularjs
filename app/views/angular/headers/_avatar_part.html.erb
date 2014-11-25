@@ -1,35 +1,37 @@
 <div id="site-navigation">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
+  <div class="navbar-header">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <a class="navbar-brand" href="#">Snippet</a>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    </div>
 
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <% if current_user %>
-            <li><a href="#"><%= current_user.name %></a></li>
-        <% end %>
-      </ul>
-
-      <div class="navbar-header navbar-right">
-        <ul class="nav navbar-nav" style="font-size: 20px; word-spacing: 1.8">
+      <div class="navbar-collapse collapse" style="font-size: 16px; word-spacing: 1.8">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
           <% if current_user %>
-              <li><a href="" class="glyphicon glyphicon-comment"></a></li>
-              <li><a href="" class="glyphicon glyphicon-log-out"></a></li>
-              <li><a href="#">
-                <img src="<%= current_user.avatar.url %>" width="40px" height="40px"
-                     style="padding-left: 5px; top: -5px; position: relative;"></a>
-              </li>
+              <li><a href="#"><%= current_user.name %></a></li>
           <% end %>
         </ul>
       </div>
-    </div>
-  </nav>
+
+        <div class="navbar-header navbar-right">
+          <ul class="nav navbar-nav" id="nav-right-menu">
+            <% if current_user %>
+                <li><a href="" class="glyphicon glyphicon-comment"></a></li>
+                <li><a href="" class="glyphicon glyphicon-log-out"></a></li>
+                <li><a href="#">
+                  <img src="<%= current_user.avatar.url %>" width="38px" height="38px"
+                       style="top: -10px; position: relative;"></a>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+      <!--</div>-->
+    </nav>
+  </div>
 </div>
 

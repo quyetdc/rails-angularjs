@@ -94,6 +94,7 @@ ul#navigation li.active a {
     position: relative;
     background-color: #fff;
     margin-top: -200px;
+    float: left;
 }
 
 .db-left-item{

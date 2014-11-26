@@ -20,8 +20,6 @@ img#cover{
     border: 1px solid #FFF;
     border-top: none;
     position: relative;
-    top: -29px;
-    margin-top: 56px;
 }
 
 .thumbnail {
@@ -73,7 +71,6 @@ body {
 #content {
     padding:0px 10px 250px;
     position: relative;
-    margin-top: -1px;
 }
 #footer {
     width:100%;

@@ -9,6 +9,10 @@
     float: right;
 }
 
+.nav > li {
+    float: left;
+}
+
 .navbar-brand{
     font-weight: bold !important;
     font-size: 20px;

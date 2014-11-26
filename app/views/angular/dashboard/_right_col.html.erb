@@ -1,18 +1,3 @@
-<a class="profile-pic-border" href="">
-  <% if current_user %>
-      <img class="profile-pic"
-           id="mainUserProfilePic"
-           src="<%= current_user.avatar.url %>"
-           oncontextmenu="return false;"
-           onmousedown="preventImageDrag(event);"
-           ondragstart="return false;"
-           onselectstart="return false;"
-           width="135px"
-           height="135px"
-      />
-  <% end %>
-</a>
-
 <div style="width: 92%; margin-left: 0; padding: 20px 2px 20px 2px; margin-top: 20px;">
   <ul class="list-group db-left-box">
     <li class="list-group-item db-left-item">

@@ -67,7 +67,6 @@ ul#navigation li.active a {
 .db-sidebar{
     width: 28%;
     float: left;
-    top: -138px;
     position: relative;
 }
 
@@ -85,7 +84,7 @@ ul#navigation li.active a {
     max-width: 100%;
     max-height: 100%;
     margin-right: 10px !important;
-    margin-left: 9%;
+    margin-left: 5.2%;
     bottom: 0px;
     left: 0px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
@@ -94,7 +93,7 @@ ul#navigation li.active a {
     text-align: center;
     position: relative;
     background-color: #fff;
-    top: -70px;
+    margin-top: -200px;
 }
 
 .db-left-item{
@@ -132,11 +131,11 @@ ul#navigation li.active a {
 }
 
 .db-left-box:first-child {
-    margin-top: 0;
+    margin-top: 5px;
 }
 
 .db-content-item {
-    width: 97%;
+    width: 100%;
     /*padding: 25px 40px;*/
     position: relative;
     /*box-sizing: border-box;*/
@@ -150,7 +149,7 @@ ul#navigation li.active a {
 }
 
 .db-content-item-info, .db-content-item-main{
-    width: 97%;
+    width: 100%;
     padding-bottom: 15px;
     padding-left: 20px;
     text-shadow: none;

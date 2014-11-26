@@ -4,12 +4,28 @@
       <div>
         <img id="cover" src="/assets/images/disney-manga.jpg"/>
         <ul id="navigation">
-            <li class="active"><a href="#">Code Wall</a></li>
+            <li><a href="#">Code Wall</a></li>
             <li><a href="#">Tags</a></li>
+            <li><a href="#">Friends</a></li>
             <li><a href="#">About</a></li>
         </ul>
 
       </div>
+
+      <a class="profile-pic-border" href="">
+        <% if current_user %>
+            <img class="profile-pic"
+                 id="mainUserProfilePic"
+                 src="<%= current_user.avatar.url %>"
+                 oncontextmenu="return false;"
+                 onmousedown="preventImageDrag(event);"
+                 ondragstart="return false;"
+                 onselectstart="return false;"
+                 width="135px"
+                 height="135px"
+            />
+        <% end %>
+      </a>
 
       <div class="db-sidebar col-offset-small">
         <%= render 'right_col' %>

@@ -13,13 +13,30 @@
 
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
+        <li ng-class="appCtrl.setActiveClass('home')" ng-click="appCtrl.setScreen('home')">
+          <%= link_to dashboard_path, user: current_user do %>
+            Home
+          <% end %>
+        </li>
+
         <% if current_user %>
-            <li><a href="#"><%= current_user.name %></a></li>
-            <li><a href="#" class="glyphicon glyphicon-comment"></a></li>
+            <li ng-class="appCtrl.setActiveClass('user')" ng-click="appCtrl.setScreen('user')">
+              <%= link_to dashboard_path, user: current_user do %>
+                  <%= current_user.name %>
+              <% end %>
+            </li>
+
+            <li ng-class="appCtrl.setActiveClass('post')" ng-click="appCtrl.setScreen('post')">
+              <a href="#" class="glyphicon glyphicon-comment"></a>
+            </li>
+
+            <li ng-class="appCtrl.setActiveClass('profile')" ng-click="appCtrl.setScreen('profile')">
+              <%= link_to edit_user_registration_path, user: current_user do %>
+                <span class="glyphicon glyphicon-user"></span>
+              <% end %>
+            </li>
             <li><a href="#" class="glyphicon glyphicon-log-out"></a></li>
         <% end %>
-
       </ul>
     </div>
   </div>

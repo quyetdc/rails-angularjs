@@ -9,9 +9,17 @@ function adjustStyle(width) {
     }
 }
 
-$(function() {
+var ready = function(){
     adjustStyle($(this).width());
     $(window).resize(function() {
         adjustStyle($(this).width());
     });
-});
+
+    $("li").click(function() {
+        $("li.active").removeClass("active");
+        $(this).addClass("active");
+    });
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

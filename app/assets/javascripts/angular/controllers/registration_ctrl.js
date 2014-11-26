@@ -87,7 +87,9 @@
         };
 
         regCtrl.updateUser = function() {
-            if (!regCtrl.user_params.length == 0){
+            console.log("user_params");
+            console.log(regCtrl.user_params);
+            if (regCtrl.user_params.length != 0){
                 var update_user_params = {
                     name: regCtrl.user_params.name,
                     age: regCtrl.user_params.age,
@@ -111,6 +113,7 @@
                 });
 
                 request.success(function(data, status) {
+                    console.log('update success');
                     globalService.setUser(data.user);
                     regCtrl.user_params =  {};
 
@@ -118,6 +121,7 @@
                 });
 
                 request.error(function(data, status) {
+                    console.log('update error');
                     regCtrl.error_message = data.message;
                 });
             }

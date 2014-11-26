@@ -1,5 +1,5 @@
 <!--Menu bar-->
-<div class="container" ng-app="AngularJsOnRails">
+<div class="container">
   <div class="row">
     <section ng-controller="registrationCtrl as regCtrl">
       <div ng-show="regCtrl.screenSelected('sign_in')"><%= render 'sign_in' %></div>
@@ -7,7 +7,5 @@
       <div ng-show="regCtrl.screenSelected('edit_profile')"><%= render 'edit_profile' %></div>
       <div ng-show="regCtrl.screenSelected('welcome')"><%= render 'welcome' %></div>
     </section>
-
   </div>
-
 </div>

@@ -25,10 +25,8 @@
 
 .navbar-inverse .nav .active>a{
     background-color: transparent;
-}
-
-.navbar-nav > li > a{
-    padding-bottom: 0;
+    color: #FFF !important;
+    font-weight: bold !important;
 }
 
 .navbar-toggle{

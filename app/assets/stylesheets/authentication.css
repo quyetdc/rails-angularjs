@@ -91,7 +91,16 @@ label{
 }
 
 #btn-sign-up{
+    padding: 10px;
+}
+
+.desktop #btn-sign-up{
     width: 70%;
+}
+
+.smartphone #btn-sign-up,
+.tablet #btn-sign-up {
+    width: 95%;
 }
 
 #edit-profile-title{

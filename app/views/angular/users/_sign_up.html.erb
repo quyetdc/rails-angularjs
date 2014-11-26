@@ -2,7 +2,7 @@
 
 <div id="error-message" ng-show="regCtrl.error_message">{{regCtrl.error_message}}</div>
 
-<div id="auth-left-panel" class="col-md-6 col-xs-6">
+<div id="auth-left-panel">
   <div class="sign-up">
     <form name="signupForm" ng-submit="regCtrl.createUser(signupForm.$valid)" novalidate>
 
@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div id="auth-right-panel" class="col-md-5 col-xs-5" style="margin-top: 60px">
+<div id="auth-right-panel" style="margin-top: 60px">
   Already have your account?
   <br />
   <div style="margin-top: 20px;"><a href ng-click="regCtrl.selectScreen('sign_in')"> Sign in now >> </a></div>

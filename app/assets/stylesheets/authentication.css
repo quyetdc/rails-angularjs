@@ -122,8 +122,8 @@ label{
 }
 
 .edit-profile-btn{
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
 }
 
 .desktop .edit-profile-btn{

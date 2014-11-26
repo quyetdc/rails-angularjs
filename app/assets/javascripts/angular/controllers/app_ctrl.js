@@ -11,6 +11,7 @@ angular.module('app.mainCtrl', []).controller('appCtrl', function(){
             return 'active'
         }
     };
+
     appCtrl.init = function(){
         console.log('init app');
         if (localStorage.getItem('screen')){
@@ -19,5 +20,20 @@ angular.module('app.mainCtrl', []).controller('appCtrl', function(){
             appCtrl.screen = 'home';
         }
 
+    };
+
+    appCtrl.isSignin = function () {
+        if (localStorage.getItem('user')){
+            console.log(localStorage.getItem('user'));
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    appCtrl.signout = function(){
+        console.log('signout');
+        appCtrl.screen = 'home';
+        localStorage.removeItem('user');
     };
 });

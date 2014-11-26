@@ -14,29 +14,34 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ng-class="appCtrl.setActiveClass('home')" ng-click="appCtrl.setScreen('home')">
-          <%= link_to dashboard_path, user: current_user do %>
+          <%= link_to dashboard_path do %>
             Home
           <% end %>
         </li>
 
-        <% if current_user %>
-            <li ng-class="appCtrl.setActiveClass('user')" ng-click="appCtrl.setScreen('user')">
+        <li ng-class="appCtrl.setActiveClass('user')" ng-click="appCtrl.setScreen('user')" ng-show="appCtrl.isSignin()">
+          <% if current_user %>
               <%= link_to dashboard_path, user: current_user do %>
                   <%= current_user.name %>
               <% end %>
-            </li>
+          <% end %>
+        </li>
 
-            <li ng-class="appCtrl.setActiveClass('post')" ng-click="appCtrl.setScreen('post')">
-              <a href="#" class="glyphicon glyphicon-comment"></a>
-            </li>
+        <li ng-class="appCtrl.setActiveClass('post')" ng-click="appCtrl.setScreen('post')" ng-show="appCtrl.isSignin()">
+          <a href="#" class="glyphicon glyphicon-comment"></a>
+        </li>
 
-            <li ng-class="appCtrl.setActiveClass('profile')" ng-click="appCtrl.setScreen('profile')">
-              <%= link_to edit_user_registration_path, user: current_user do %>
-                <span class="glyphicon glyphicon-user"></span>
-              <% end %>
-            </li>
-            <li><a href="#" class="glyphicon glyphicon-log-out"></a></li>
-        <% end %>
+        <li ng-class="appCtrl.setActiveClass('profile')" ng-click="appCtrl.setScreen('profile')" ng-show="appCtrl.isSignin()">
+          <%= link_to edit_user_registration_path, user: current_user do %>
+            <span class="glyphicon glyphicon-user"></span>
+          <% end %>
+        </li>
+        <li ng-click="appCtrl.signout()" ng-show="appCtrl.isSignin()">
+          <%= link_to root_path do %>
+              <span class="glyphicon glyphicon-log-out"></span>
+          <% end %>
+        </li>
+
       </ul>
     </div>
   </div>

@@ -23,9 +23,8 @@
         };
 
         regCtrl.requestApiSuccess = function (data) {
-            regCtrl.screen = 'edit_profile';
-            regCtrl.error_message = '';
-            globalService.setUser(data.user);
+            localStorage.setItem('user', data.user);
+            window.location.href = '/dashboard';
         };
 
         regCtrl.signin = function(isDataValid){
@@ -46,7 +45,6 @@
 
             request.success(function(data, status) {
                 regCtrl.requestApiSuccess(data);
-                regCtrl.user_params =  {};
             });
 
             request.error(function(data, status) {
@@ -75,7 +73,6 @@
 
             request.success(function(data, status) {
                 regCtrl.requestApiSuccess(data);
-                regCtrl.user_params =  {};
             });
 
             request.error(function(data, status) {
@@ -114,10 +111,7 @@
 
                 request.success(function(data, status) {
                     console.log('update success');
-                    globalService.setUser(data.user);
-                    regCtrl.user_params =  {};
-
-                    window.location.href = '/dashboard';
+                    regCtrl.requestApiSuccess(data);
                 });
 
                 request.error(function(data, status) {

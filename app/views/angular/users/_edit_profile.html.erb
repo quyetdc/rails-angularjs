@@ -1,4 +1,4 @@
-<div class="row col-md-7 col-xs-7 col-md-offset-3 col-xs-offset-3">
+<div class="row col-md-7 col-xs-7 col-md-offset-3 col-xs-offset-3" id="edit-profile">
 
   <div class="auth-title" id="edit-profile-title"> Edit Profile </div>
 
@@ -13,21 +13,21 @@
     </fieldset>
 
     <fieldset class="form-group">
-      <label>Name</label>
+      <label>Name</label><br />
       <input type="name" ng-model="regCtrl.user_params.name" placeholder="Enter your name" class="text-input"/>
     </fieldset>
 
     <br />
     <fieldset class="form-group">
-      <label>Age</label>
+      <label>Age</label><br />
       <input type="name" ng-model="regCtrl.user_params.age" placeholder="Enter your name" class="text-input"/>
     </fieldset>
 
     <br />
 
     <fieldset class="form-group">
-      <input type="button" class="btn btn-success btn-auth" style="width: 30%" value="Edit" ng-click="regCtrl.updateUser()"/>
-      <input type="button" class="btn btn-primary btn-auth" style="width: 30%; margin-left: 14%" value="Skip" ng-click="regCtrl.skipUpdate()"/>
+      <input type="button" class="btn btn-success btn-auth edit-profile-btn" value="Edit" ng-click="regCtrl.updateUser()"/><br />
+      <input type="button" class="btn btn-primary btn-auth edit-profile-btn" value="Skip" ng-click="regCtrl.skipUpdate()"/>
     </fieldset>
   </form>
 

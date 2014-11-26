@@ -103,16 +103,35 @@ label{
     width: 95%;
 }
 
-#edit-profile-title{
+#edit-profile-title {
     margin-top: 10%;
     margin-bottom: 40px;
     padding-left: 0;
     margin-left: 0;
 }
 
-#edit-profile{
-    border: 1px solid #DADADA;
-    text-align: center;
+.desktop #edit-profile {
+    width: 70%;
+    margin-left: 25%;
+}
+
+.smartphone #edit-profile,
+.tablet #edit-profile {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.edit-profile-btn{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.desktop .edit-profile-btn{
+    width: 70%;
+}
+.smartphone .edit-profile-btn,
+.tablet .edit-profile-btn{
+    width: 95%;
 }
 
 #welcome{

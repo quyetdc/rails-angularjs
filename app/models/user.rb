@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  has_many :snippets
+
   mount_uploader :avatar, AvatarUploader
 
   validates :name, length: { maximum: 50 }

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :snippets
+
   root "angular/users#index"
 
   get 'dashboard' => 'angular/dashboard#index'

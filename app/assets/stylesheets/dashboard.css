@@ -164,11 +164,12 @@ ul#navigation li.active a {
     height: 58px;
 }
 
-.left-col{
-    width: 35%;
-    margin-right: 20%;
+.left-col {
+    width: auto;
+    /* margin-right: 20%; */
     position: relative;
     float: left;
+    max-width: 60%;
 }
 
 .right-col{

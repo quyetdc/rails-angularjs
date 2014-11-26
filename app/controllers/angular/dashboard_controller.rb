@@ -1,7 +1,8 @@
 module Angular
   class DashboardController < ApplicationController
     def index
-      ## in order to load the index page
+      ## todo: change @user here
+      @user = current_user
     end
   end
 end

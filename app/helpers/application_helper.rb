@@ -11,4 +11,15 @@ module ApplicationHelper
   #   @devise_mapping ||= Devise.mappings[:users]
   # end
 
+  # create a custom renderer that allows highlighting of code blocks
+  # class HTMLwithPygments < Redcarpet::Render::HTML
+  #   def block_code(code, language)
+  #     Pygments.highlight(code, lexer: language)
+  #   end
+  # end
+  #
+  #
+  # def markdown
+  #   Redcarpet::Markdown.new(HTMLwithPygments, fenced_code_blocks: true)
+  # end
 end

@@ -4,7 +4,7 @@
       <div>
         <img id="cover" src="/assets/images/disney-manga.jpg"/>
         <ul id="navigation">
-            <li><a href="#">Code Wall</a></li>
+            <li class="active"><a href="#">Code Wall</a></li>
             <li><a href="#">Tags</a></li>
             <li><a href="#">Friends</a></li>
             <li><a href="#">About</a></li>
@@ -13,10 +13,10 @@
       </div>
 
       <a class="profile-pic-border" href="">
-        <% if current_user %>
+        <% if @user %>
             <img class="profile-pic"
                  id="mainUserProfilePic"
-                 src="<%= current_user.avatar.url %>"
+                 src="<%= @user.avatar.url %>"
                  oncontextmenu="return false;"
                  onmousedown="preventImageDrag(event);"
                  ondragstart="return false;"
@@ -32,43 +32,31 @@
       </div>
 
       <div class="db-main-content col-offset-small">
-        <% if current_user %>
+        <% if @user %>
             <% 5.times do %>
                 <div class="db-content-item">
                   <div class="db-content-item-info">
                     <div class="left-col">
-                      <img src=<%= current_user.avatar.url %> alt="..."
+                      <img src=<%= @user.avatar.url %> alt="..."
                            class="thumbnails" width="50px" height="50px"
                            style="position: relative; float: left">
                       <p style="position: relative; float: left; padding-left: 5%; font-weight: bold; font-size: 16px; padding-top: 2px">
-                        <a href="#"> <%= current_user.name %> / file_name </a>
+                        <a href="#"> <%= @user.name %> </a>/ <a href="#"> <%= @user.snippets.first.name %> </a>
                       <p style="position: relative; float: left; padding-left: 5%; font-size: 14px; line-height: 1">
-                        Date created</p>
+                        Created at <%= @user.snippets.first.created_at %></p>
                     </div>
 
                     <div class="right-col">
-                      <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Snippet's Tag</a></span>
+                      <% @user.snippets.first.tags.each do |tag| %>
+                        <span class="tag-item"><span class="glyphicon glyphicon-tag"></span>
+                        <a href=""><%= tag %></a></span>
+                      <% end %>
                     </div>
 
                   </div>
 
                   <div class="db-content-item-main">
-                <pre>
-                ## I used Coffee Script syntax
-                ## @ sign here to set this function available in .erb file
-
-                @yourFunction = (auth_token) ->
-                  $.ajax({
-                    type: "GET",
-                    url: "/url/path",
-                    headers: { 'Authorization': 'Token token=' + auth_token }
-                  }).done((data) -> console.log(data)
-                  ).fail((jqXHR, textStatus, errorThrown) ->
-                    console.log("Request failed: " + textStatus)
-                    console.log(errorThrown)
-                  });
-                </pre>
-
+                    <%=  @user.snippets.first.content.html_safe  %>
                     <hr>
                     <div>
                       <ul class="nav nav-pills" style="font-size: 14px">

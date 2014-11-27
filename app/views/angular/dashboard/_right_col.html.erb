@@ -15,13 +15,9 @@
   </ul>
 
   <div class="db-left-box">
-
-    <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Tag 1, </a></span>
-    <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Tag 2,</a></span>
-    <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Tag 3,</a></span>
-    <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Tag 4,</a></span>
-    <span class="tag-item"><span class="glyphicon glyphicon-tag"></span> <a href="">Tag 5</a></span>
-
+    <% @tags.each do |tag|  %>
+        <span class="tag-item" style="line-height: 2 !important;"><span class="glyphicon glyphicon-tag"></span> <a href=""><%= tag %></a></span>
+    <% end %>
   </div>
 
 </div>

@@ -5,9 +5,7 @@ This project I created with purpose of programmers can store snippets for later 
 
 I integrate AngularJs in this projects for easy front-end. This project is still being in development process.
 
-I have configured this project to use PostgreSQL in order to deploy on heroku. You may want to try this via address:
-
-http://rails-angular.herokuapp.com/
+I will deploy to heroku soon.
 
 In order to try this, ofcourse, there are some steps you should follow:
 
@@ -46,3 +44,4 @@ A lot of things which I am developing
 - Fix size of pre block on dashboard
 - friends functions
 - Create new snippet -> need to add tags instead of default tag, can be text field an have add button using angular
+- Deploy Heroku

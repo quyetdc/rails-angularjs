@@ -140,7 +140,6 @@ ul#navigation li.active a {
     /*padding: 25px 40px;*/
     position: relative;
     /*box-sizing: border-box;*/
-    display: table;
     text-shadow: none;
     /*background: rgba(255, 255, 255, 0.95);*/
     font: 13px Helvetica, arial, freesans, clean, sans-serif;

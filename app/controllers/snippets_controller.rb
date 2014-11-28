@@ -1,5 +1,6 @@
 class SnippetsController < ApplicationController
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   respond_to :html
 
@@ -21,9 +22,17 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    @snippet = Snippet.new(snippet_params)
-    @snippet.save
-    respond_with(@snippet)
+    @snippet = current_user.snippets.new(snippet_params)
+    @snippet.tags = ["Ruby"]
+    if @snippet.save
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+      end
+    else
+      respond_to do |format|
+        format.html { render action: "new" }
+      end
+    end
   end
 
   def update
@@ -42,6 +51,6 @@ class SnippetsController < ApplicationController
     end
 
     def snippet_params
-      params.require(:snippet).permit(:name, :content, :stars, :tags)
+      params.require(:snippet).permit(:name, :content, :tags)
     end
 end

@@ -28,7 +28,16 @@
         </li>
 
         <li ng-class="appCtrl.setActiveClass('post')" ng-click="appCtrl.setScreen('post')" ng-show="appCtrl.isSignin()">
-          <a href="#" class="glyphicon glyphicon-comment"></a>
+          <% if current_user %>
+              <%= link_to new_snippet_path do %>
+                  <span class="glyphicon glyphicon-comment"></span>
+              <% end %>
+          <% end %>
+
+        </li>
+
+        <li ng-class="appCtrl.setActiveClass('contacts')" ng-click="appCtrl.setScreen('contacts')" ng-show="appCtrl.isSignin()">
+          <a href="#" class="glyphicon glyphicon-phone-alt"></a>
         </li>
 
         <li ng-class="appCtrl.setActiveClass('profile')" ng-click="appCtrl.setScreen('profile')" ng-show="appCtrl.isSignin()">

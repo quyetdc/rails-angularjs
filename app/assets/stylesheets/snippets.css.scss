@@ -1,3 +1,39 @@
 // Place all the styles related to the Snippets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.new-snippet{
+  margin-top: 100px;
+  font-size: 15px;
+  .thumbnail{
+    padding: 30px 5% 50px 10%;
+  }
+
+  #error_explanation{
+    color: #e9322d !important;
+    width: 70%;
+  }
+}
+
+.form-snippet{
+  label {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  input{
+    width: 55%;
+  }
+
+  textarea {
+    width: 95%;
+    min-height: 350px;
+  }
+  .actions {
+    margin-top: 30px;
+    input {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+    }
+  }
+}

@@ -43,3 +43,6 @@ Enjoy
 TODO
 ----
 A lot of things which I am developing
+- Fix size of pre block on dashboard
+- friends functions
+- Create new snippet -> need to add tags instead of default tag, can be text field an have add button using angular

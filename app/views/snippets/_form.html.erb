@@ -1,30 +1,35 @@
-<div class="form-snippet">
-  <%= form_for(@snippet) do |f| %>
-      <% if @snippet.errors.any? %>
-          <div id="error_explanation">
-            <h4 style="color: #000000"><%= pluralize(@snippet.errors.count, "error") %> prohibited this snippet from being saved:</h4>
+<div class="form-snippet" ng-controller="snippetsController as spCtrl">
 
-            <ul>
-              <% @snippet.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
+  <!--<div id="error-message" ng-show="spCtrl.error_message">{{spCtrl.error_message}}</div>-->
 
-      <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-      </div>
+  <form name="snippetForm" novalidate>
+    <fieldset class="form-group">
+      <label>Name</label><br>
+      <input type="text" name="name" ng-model="spCtrl.name" placeholder="Enter your snippet's name" class="" required/>
+    </fieldset>
 
-      <div class="field">
-        <%= f.label :content %><br>
-        <%= f.text_area :content %>
-      </div>
+    <fieldset class="form-group">
+      <label>Tags</label><br>
+      <input type="text" name="tags" placeholder="Enter your snippet's tag" ng-model="spCtrl.newTag" class="" required/>
+      <button class="btn btn-success" id="btn-add-tag" ng-click="spCtrl.addTag()">Add</button>
+    </fieldset>
 
-      <div class="actions">
-        <%= f.submit 'Create', :class => "btn btn-primary" %>
-      </div>
+    <ul ng-hide="spCtrl.tags.length == 0">
 
-  <% end %>
+      <li ng-repeat="tag in spCtrl.tags" class="btn btn-info">
+        {{tag}}
+        <span class="glyphicon glyphicon-remove" ng-click="spCtrl.removeTag(tag)"></span>
+      </li>
+    </ul>
+
+    <fieldset class="form-group">
+      <label>Content</label><br>
+      <textarea name="content" ng-model="spCtrl.content" class="" placeholder="Write your snippet in HTML format" required> </textarea>
+    </fieldset>
+
+    <fieldset class="form-group actions">
+      <input type="button" value="Create" class="btn btn-primary" ng-click="spCtrl.createSnippet()"/>
+    </fieldset>
+  </form>
+
 </div>

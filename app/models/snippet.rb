@@ -3,22 +3,24 @@ class Snippet < ActiveRecord::Base
 
   serialize :tags
 
+  # before_save :validate_duplication_on_tags
+
+  def validate_company_id
+    Company.find(company) ? return : errors.add(:company,"Invalid Company ID")
+  end
+
   validates :user_id, presence: true
   validates :name, presence: true
   validates :content, presence: true
   validates :tags, presence: true
 
-  validate :tags_array_cannot_be_duplicated
-
-  before_validation(on: :save) do
-    if self.tags
-      self.tags = self.tags.map { |tag| tag.titleize}
-    end
-  end
-
-  def tags_array_cannot_be_duplicated
-    if self.tags && self.tags.uniq!
-      errors.add(:tags, "can't be duplicate")
-    end
-  end
+  # def validate_duplication_on_tags
+  #   if self.tags
+  #     self.tags = self.tags.map { |tag| tag.titleize}
+  #
+  #     if self.tags.uniq!
+  #       return 'Tags cannot be duplicated'
+  #     end
+  #   end
+  # end
 end

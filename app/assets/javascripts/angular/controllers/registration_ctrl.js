@@ -84,8 +84,6 @@
         };
 
         regCtrl.updateUser = function() {
-            console.log("user_params");
-            console.log(regCtrl.user_params);
             if (regCtrl.user_params.length != 0){
                 var update_user_params = {
                     name: regCtrl.user_params.name,
@@ -115,7 +113,6 @@
                 });
 
                 request.error(function(data, status) {
-                    console.log('update error');
                     regCtrl.error_message = data.message;
                 });
             }

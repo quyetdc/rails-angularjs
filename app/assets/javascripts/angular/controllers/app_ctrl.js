@@ -13,7 +13,6 @@ angular.module('app.mainCtrl', []).controller('appCtrl', function(){
     };
 
     appCtrl.init = function(){
-        console.log('init app');
         if (localStorage.getItem('screen')){
             appCtrl.screen = localStorage.getItem('screen');
         } else {
@@ -24,7 +23,6 @@ angular.module('app.mainCtrl', []).controller('appCtrl', function(){
 
     appCtrl.isSignin = function () {
         if (localStorage.getItem('user')){
-            console.log(localStorage.getItem('user'));
             return true;
         } else {
             return false;
@@ -32,7 +30,6 @@ angular.module('app.mainCtrl', []).controller('appCtrl', function(){
     };
 
     appCtrl.signout = function(){
-        console.log('signout');
         appCtrl.screen = 'home';
         localStorage.removeItem('user');
     };

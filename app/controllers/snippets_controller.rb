@@ -1,8 +1,8 @@
 class SnippetsController < ApplicationController
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+  # before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @snippets = Snippet.all
@@ -23,14 +23,18 @@ class SnippetsController < ApplicationController
 
   def create
     @snippet = current_user.snippets.new(snippet_params)
-    @snippet.tags = ["Ruby"]
-    if @snippet.save
+    if @snippet.valid?
+      puts 'validddddd'
+      @snippet.save
       respond_to do |format|
         format.html { redirect_to dashboard_path }
+        format.json { render :json => { snippet: @snippet, status: :ok } }
       end
     else
+      puts @snippet.errors.messages
       respond_to do |format|
         format.html { render action: "new" }
+        format.json { render :json => { error: @snippet.errors.messages, status: :bad_request } }
       end
     end
   end

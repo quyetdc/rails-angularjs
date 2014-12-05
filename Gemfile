@@ -52,6 +52,8 @@ gem 'rails_12factor', group: :production
 
 gem 'carrierwave'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end

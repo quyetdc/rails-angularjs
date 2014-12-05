@@ -17,15 +17,12 @@
 
     <ul class="db-left-box">
       <%
-         _tags = []
-         ActsAsTaggableOn::Tag.all.each do |snippet|
-           _tags = _tags | snippet.tags
-         end
+         _tags = ActsAsTaggableOn::Tag.select("name").map {|tag| tag.name}
       %>
 
       <% _tags.each do |tag|  %>
           <span class="tag-item" style="line-height: 2 !important;"><span class="glyphicon glyphicon-tag"></span>
-            <%= link_to tag, snippets_path(tag: tag.name) %>
+            <%= link_to tag, snippets_path(tag: tag) %>
           </span>
       <% end %>
     </ul>

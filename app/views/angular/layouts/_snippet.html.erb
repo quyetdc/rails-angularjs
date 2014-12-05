@@ -1,0 +1,39 @@
+<% user = snippet.user %>
+<div class="db-content-item">
+  <div class="db-content-item-info">
+    <div class="left-col">
+      <img src=<%= user.avatar.url %> alt="..."
+           class="thumbnails" width="50px" height="50px"
+           style="position: relative; float: left">
+      <p style="position: relative; float: left; padding-left: 5%; font-weight: bold; font-size: 16px; padding-top: 2px">
+        <a href="#"> <%= user.name %> </a>/ <a href="#"> <%= snippet.name %> </a>
+      <p style="position: relative; float: left; padding-left: 5%; font-size: 14px; line-height: 1">
+        Created at <%= snippet.created_at %></p>
+    </div>
+
+    <div class="right-col">
+      <% snippet.tags.each do |tag| %>
+          <p class="tag-item" style="float: right"><span class="glyphicon glyphicon-tag"></span>
+            <%= link_to tag, snippets_path(tag: tag.name) %>
+          </p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="db-content-item-main">
+    <%=  snippet.content.html_safe  %>
+    <hr>
+    <div>
+      <ul class="nav nav-pills" style="font-size: 14px">
+        <li>
+          <a href="#"><span class="glyphicon glyphicon-comment"></span> Comment</a>
+        </li>
+
+        <li style="margin-left: 25px">
+          <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

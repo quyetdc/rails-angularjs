@@ -1,0 +1,56 @@
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - authentication_token
+  - created_at
+  - updated_at
+  - name
+  - age
+  - avatar
+  records: 
+  - - '1'
+    - test@example.com
+    - "$2a$10$SUSCHXBcXO9A6Tk9FthjcOy2RTBJqq5vvNE58R./HfX5/ebU8GSrO"
+    - 
+    - 
+    - 
+    - '6'
+    - '2014-11-19 02:16:45.607587'
+    - '2014-11-18 03:44:14.160222'
+    - 127.0.0.1
+    - 127.0.0.1
+    - XBDfcznsUpngq2m2wdHb
+    - '2014-11-13 04:57:25.000918'
+    - '2014-11-19 02:16:45.609107'
+    - Colin
+    - '25'
+    - avatar.png
+  - - '2'
+    - quyetdc.uet@gmail.com
+    - "$2a$10$UtYBhdTGNLT94dzxYlIzaOHPIvFV8SVl4hIRskcdc5TW3KCbe.6Qi"
+    - 
+    - 
+    - 
+    - '1'
+    - '2014-11-14 04:48:47.161172'
+    - '2014-11-14 04:48:47.161172'
+    - 127.0.0.1
+    - 127.0.0.1
+    - xa7GkEBzPCH_7bzzbjYL
+    - '2014-11-14 04:48:47.023933'
+    - '2014-11-14 04:48:47.161613'
+    - 
+    - 
+    - 

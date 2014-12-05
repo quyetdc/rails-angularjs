@@ -4,7 +4,6 @@ class CreateSnippets < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.integer :stars, default: 0
-      t.text :tags
       t.integer :user_id
 
       t.timestamps null: false

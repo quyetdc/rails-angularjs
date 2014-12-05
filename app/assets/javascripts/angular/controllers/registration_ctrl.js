@@ -23,7 +23,7 @@
         };
 
         regCtrl.requestApiSuccess = function (data) {
-            localStorage.setItem('user', data.user);
+            localStorage.setItem('user', JSON.stringify(data.user));
             window.location.href = '/dashboard';
         };
 
@@ -89,7 +89,7 @@
                     name: regCtrl.user_params.name,
                     age: regCtrl.user_params.age,
                     avatar: regCtrl.user_params.avatar,
-                    authentication_token: globalService.getUser().authentication_token
+                    authentication_token: JSON.parse(localStorage.getItem('user')).authentication_token
                 };
 
                 var fd = new FormData();

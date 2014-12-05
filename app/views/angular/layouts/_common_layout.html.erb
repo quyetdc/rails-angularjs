@@ -1,0 +1,24 @@
+<div>
+  <img id="cover" src="/assets/images/disney-manga.jpg"/>
+  <ul id="navigation">
+    <li class="active"><a href="#">Code Wall</a></li>
+    <li><a href="#">Tags</a></li>
+  </ul>
+
+</div>
+
+<a class="profile-pic-border" href="">
+  <% user = @user ? @user : current_user %>
+  <img class="profile-pic"
+       id="mainUserProfilePic"
+       src="<%= user.avatar.url %>"
+       oncontextmenu="return false;"
+       onmousedown="preventImageDrag(event);"
+       ondragstart="return false;"
+       onselectstart="return false;"
+       width="125px"
+       height="125px"
+  />
+</a>
+
+<%= render 'angular/layouts/db_left_box' %>

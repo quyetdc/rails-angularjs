@@ -28,7 +28,7 @@ angular.module('app.snippetsController', []).controller('snippetsController', ['
             data: JSON.stringify({
                 snippet: {
                     name: snippetsCtrl.name,
-                    tags: snippetsCtrl.tags,
+                    tag_list: snippetsCtrl.tags.join(),
                     content: snippetsCtrl.content
                 }
             })

@@ -13,7 +13,7 @@
 
     <div class="right-col">
       <% snippet.tags.each do |tag| %>
-          <p class="tag-item" style="float: right"><span class="glyphicon glyphicon-tag"></span>
+          <p class="tag-item"><span class="glyphicon glyphicon-tag"></span>
             <%= link_to tag, snippets_path(tag: tag.name) %>
           </p>
       <% end %>

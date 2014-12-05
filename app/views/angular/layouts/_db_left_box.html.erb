@@ -1,30 +1,28 @@
 <div class="db-sidebar col-offset-small">
-  <div style="width: 92%; margin-left: 0; padding: 20px 2px 20px 2px; margin-top: 20px;">
-      <ul class="db-left-box">
-        <li class="db-left-item">
-          <span class="badge db-statistic">9</span>
-          Friends
-        </li>
-        <li class="db-left-item">
-          <span class="badge db-statistic">6</span>
-          Tags
-        </li>
-        <li class="db-left-item">
-          <span class="badge db-statistic">90</span>
-          Snippets
-        </li>
-      </ul>
+  <ul class="db-left-box">
+    <li class="db-left-item">
+      <span class="badge db-statistic">9</span>
+      Friends
+    </li>
+    <li class="db-left-item">
+      <span class="badge db-statistic">6</span>
+      Tags
+    </li>
+    <li class="db-left-item">
+      <span class="badge db-statistic">90</span>
+      Snippets
+    </li>
+  </ul>
 
-    <ul class="db-left-box">
-      <%
-         _tags = ActsAsTaggableOn::Tag.select("name").map {|tag| tag.name}
-      %>
+<ul class="db-left-box">
+  <% _tags = ActsAsTaggableOn::Tag.select("name").map {|tag| tag.name} %>
 
-      <% _tags.each do |tag|  %>
-          <span class="tag-item" style="line-height: 2 !important;"><span class="glyphicon glyphicon-tag"></span>
+  <% _tags.each do |tag|  %>
+      <li class="left-box-tag-item">
+        <span class="tag-item" style="line-height: 2 !important;"><span class="glyphicon glyphicon-tag"></span>
             <%= link_to tag, snippets_path(tag: tag) %>
-          </span>
-      <% end %>
-    </ul>
-  </div>
+        </span>
+      </li>
+  <% end %>
+</ul>
 </div>

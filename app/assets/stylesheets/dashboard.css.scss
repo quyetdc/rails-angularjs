@@ -1,6 +1,5 @@
 /* -------------------------- Navigation ----------------------------- */
 ul#navigation{
-    height: 60px;
     background-color: rgba(255, 255, 255, 0.95);
     width: 95%;
     margin-left: 2.5%;
@@ -14,32 +13,21 @@ ul#navigation{
 }
 
 ul#navigation li{
-    display:inline-block;
-    float: left;
-}
-
-ul#navigation li:first-child{
-    margin-left: 18%;
-    border-left: 1px solid #DADADA;
+  display:inline-block;
+  float: right;
+  border-left: 1px solid #DADADA;
 }
 
 /*Style for menu links*/
 ul#navigation li a {
     display:block;
     padding-top: 1px;
-    height: 60px;
     text-align: center;
-    line-height: 60px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #204056;
     font-weight: 500;
-    font-size: 18px;
     /*background: #2f3036;*/
     text-decoration: none;
-    padding-left: 30px;
-    padding-right: 30px;
-    min-width: 80px;
-    border-right: 1px solid #DADADA;
 }
 
 /*Hover state for top level links*/
@@ -57,17 +45,16 @@ ul#navigation li.active a {
 }
 
 .db-main-content{
-    width: 65%;
     float: left;
     margin-top: 43px;
     /*top: -210px;*/
     /*position: relative;*/
 }
 
-.db-sidebar{
-    width: 28%;
+.db-sidebar {
     float: left;
     position: relative;
+    padding: 20px 2px 20px 2px;
 }
 
 #content-wrapper{
@@ -76,8 +63,6 @@ ul#navigation li.active a {
 
 .profile-pic-border {
     display: block;
-    width: 135px;
-    height: 135px;
     padding: 2px;
     margin-bottom: 20px;
     /* margin-top: 55px !important; */
@@ -93,7 +78,6 @@ ul#navigation li.active a {
     text-align: center;
     position: relative;
     background-color: #fff;
-    margin-top: -200px;
     float: left;
 }
 
@@ -102,6 +86,11 @@ ul#navigation li.active a {
     width: 90%;
     padding-left: 15px;
     margin-top: 12px;
+}
+
+.left-box-tag-item {
+  float: left;
+  position: relative;
 }
 
 .db-statistic{
@@ -134,12 +123,12 @@ ul#navigation li.active a {
     padding-left: 10px;
     padding-right: 10px;
     background-color: #ffffff;
-    margin-top: 50px;
     list-style: none;
+    float: left;
 }
 
-.db-left-box:first-child {
-    margin-top: 5px;
+.db-left-box:first-child{
+  margin-bottom: 50px;
 }
 
 .db-content-item {
@@ -165,20 +154,15 @@ ul#navigation li.active a {
     padding: 15px 20px;
 }
 
-.db-content-item-info{
-    height: 58px;
-}
-
 .left-col {
     width: auto;
     /* margin-right: 20%; */
     position: relative;
     float: left;
-    max-width: 60%;
+
 }
 
 .right-col{
-    width:35%;
     position: relative;
     float: right;
     text-align: right;
@@ -194,4 +178,138 @@ ul#navigation li.active a {
 }
 .db-content-item:after {
     clear: both;
+}
+
+// CUSTOM CSS FOR RESPONSIVE -----------------------
+
+.desktop {
+  ul#navigation {
+    height: 60px;
+  }
+
+  ul#navigation li a {
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    min-width: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .profile-pic-border {
+    display: block;
+    margin-top: -200px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .profile-pic{
+    width: 125px;
+    height: 125px;
+  }
+
+  .db-sidebar{
+    width: 28%;
+    margin-top: 20px;
+  }
+
+  .db-main-content{
+    width: 65%;
+  }
+
+  .left-col {
+    max-width: 65%;
+  }
+
+  .right-col{
+    width:35%;
+  }
+
+  .tag-item {
+    float: right
+  }
+
+  .db-content-item-info{
+    height: 58px;
+  }
+
+  .db-left-box {
+    width: 90%;
+  }
+}
+
+.smartphone, .tablet {
+  ul#navigation {
+    height: 50px;
+  }
+
+  ul#navigation li a {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    min-width: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .db-sidebar{
+    width: 95%;
+  }
+
+  .db-main-content{
+    width: 95%;
+  }
+
+  .left-col {
+    width: 95%;
+  }
+
+  .right-col{
+    width:95%;
+    float: left;
+    text-align: left;
+  }
+
+  .tag-item {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .db-content-item-info{
+    min-height: 100px;
+  }
+
+  .db-left-box {
+    width: 100%;
+  }
+}
+
+.smartphone {
+  .profile-pic-border {
+    display: block;
+    margin-top: -135px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-pic{
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.tablet {
+  .profile-pic-border {
+    display: block;
+    margin-top: -180px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-pic{
+    width: 110px;
+    height: 110px;
+  }
 }

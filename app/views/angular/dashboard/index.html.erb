@@ -5,10 +5,9 @@
       <%= render 'angular/layouts/common_layout' %>
 
       <div class="db-main-content col-offset-small">
-        <% if @user %>
-            <% @user.snippets.each do |snippet| %>
-                <%= render 'angular/layouts/snippet', snippet: snippet %>
-            <% end %>
+        <% user = @user ? @user : current_user %>
+        <% user.snippets.each do |snippet| %>
+            <%= render 'angular/layouts/snippet', snippet: snippet %>
         <% end %>
       </div>
     </div>

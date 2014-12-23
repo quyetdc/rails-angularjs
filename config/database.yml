@@ -5,7 +5,7 @@ development:
   timeout: 5000
   host: localhost
   username: postgres
-  password: quyet
+  password: password
 
 test:
   adapter: postgresql
@@ -14,7 +14,7 @@ test:
   timeout: 5000
   host: localhost
   username: postgres
-  password: quyet
+  password: password
 
 production:
   adapter: postgresql

@@ -1,0 +1,29 @@
+
+<div class="container">
+  <div id="content-wrapper">
+    <div class="row">
+
+      <%= render 'angular/layouts/common_layout' %>
+
+      <div class="db-main-content col-offset-small">
+        <% @accepted_friends.each do |user| %>
+            <%= render 'accepted_friend', user: user %>
+        <% end %>
+
+        <% @pending_friends.each do |user| %>
+            <%= render 'pending_friend', user: user %>
+        <% end %>
+
+        <% @requested_friends.each do |user| %>
+            <%= render 'requested_friend', user: user %>
+        <% end %>
+
+        <% @no_relationship_users.each do |user| %>
+            <%= render 'no_relationship_friend', user: user %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Dashboard view-->

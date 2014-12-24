@@ -1,0 +1,14 @@
+<div class="friend-item row">
+  <div>
+    <img src="<%= user.avatar.url %>" class="thumbnail col-md-2 col-md-offset-1" />
+    <div class="col-md-4 col-md-offset-1 user-name">
+      <%= link_to user.name, controller: "angular/dashboard", action: "index", id: user.id  %>
+      <p class="user-statistic"> 8 Stars </p>
+      <p class="user-statistic"> 8 Snippets </p>
+    </div>
+
+    <div class="col-md-1 col-md-offset-1">
+        <div class="btn btn-success btn-friend">Add Friend</div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ class Users::UsersController < ApplicationController
     @friend_ids = Friendship.select("friend_id").where(user_id: current_user.id).to_a
 
     @no_relationship_users = @friend_ids.length > 0 ? User.where('id not in (?)', @friend_ids).all.to_a : User.all.to_a
+    @no_relationship_users = @no_relationship_users - [current_user]
 
     respond_to do |format|
       format.html

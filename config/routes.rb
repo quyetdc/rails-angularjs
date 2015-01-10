@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "angular/users#index"
 
+  get 'about' => 'angular/dashboard#about'
   get 'dashboard' => 'angular/dashboard#index'
 
   get 'users' => "users/users#index"

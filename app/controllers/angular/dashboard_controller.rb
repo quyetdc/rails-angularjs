@@ -4,6 +4,9 @@ module Angular
       @user = params[:user_id] ? User.where(id: params[:user_id]).first : current_user
       @snippets = @user.snippets
     end
+    def about
+
+    end
   end
 end
 
